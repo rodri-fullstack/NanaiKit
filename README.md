@@ -61,6 +61,6 @@ nanai-kit/
 🪻 Marce Carreño
 🪻 Tais Socías
 🪻 Rodrigo Valderrama
-🪻 Claudio Hernández
+🪻 Claudio Hernández 🪻
 
 ---
