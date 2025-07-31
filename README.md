@@ -31,7 +31,6 @@ nanai-kit/
 ├── database/ → Scripts SQL para base de datos
 └── README.md → Este archivo
 
-
 ---
 
 ## 🧪 ¿Cómo probar el proyecto?
@@ -56,7 +55,12 @@ nanai-kit/
 
 ---
 
-## 🧑‍🤝‍🧑 Equipo de desarrollo
+##  Equipo de desarrollo 🧑‍🤝‍🧑💖
 
+🪻 Dani Muñoz
+🪻 Marce Carreño
+🪻 Tais Socías
+🪻 Rodrigo Valderrama
+🪻 Claudio Hernández
 
 ---
