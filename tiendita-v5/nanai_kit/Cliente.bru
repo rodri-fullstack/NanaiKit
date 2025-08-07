@@ -1,0 +1,21 @@
+meta {
+  name: Cliente
+  type: http
+  seq: 1
+}
+
+get {
+  url: http://localhost:8080/api
+  body: json
+  auth: inherit
+}
+
+body:json {
+  { "usuario_id": "1"
+   "nombre":
+  }
+}
+
+settings {
+  encodeUrl: true
+}
