@@ -9,10 +9,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
-        // Para Spring Boot < 3.0
+        // Permite que /api/clientes y /api/clientes/ funcionen igual
         configurer.setUseTrailingSlashMatch(true);
-
-        // Si usas Spring Boot 3+: usa esto en lugar de la línea anterior
-        // configurer.setPatternParser(new PathPatternParser());
     }
 }

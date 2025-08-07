@@ -1,11 +1,7 @@
 # Configuración base y activación de perfil
 
 spring:
-  datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
-  jpa:
-    hibernate:
-      ddl-auto: none
-    show-sql: true  # Cambia a 'dev' si quieres activar otro entorno
+  application:
+    name: tiendita
+  profiles:
+    active: local   # Cambia a 'dev' si quieres activar otro entorno

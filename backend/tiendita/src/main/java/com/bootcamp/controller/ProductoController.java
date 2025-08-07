@@ -1,46 +1,44 @@
 package com.bootcamp.controller;
 
-import com.bootcamp.model.Producto;
+import com.bootcamp.dto.ProductoRequest;
+import com.bootcamp.dto.ProductoResponse;
 import com.bootcamp.service.ProductoService;
-import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping({"/api/productos", "/api/productos/"}) // solucion parche
-@RequiredArgsConstructor
+@RequestMapping("/api/productos")
 public class ProductoController {
 
-    private final ProductoService productoService;
+    @Autowired
+    private ProductoService service;
+
+    @PostMapping
+    public ResponseEntity<ProductoResponse> crear(@RequestBody ProductoRequest request) {
+        return ResponseEntity.ok(service.crearProducto(request));
+    }
 
     @GetMapping
-    public List<Producto> listar() {
-        return productoService.listarTodos();
+    public ResponseEntity<List<ProductoResponse>> listar() {
+        return ResponseEntity.ok(service.listarProductos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Producto> obtenerPorId(@PathVariable Long id) {
-        return productoService.obtenerPorId(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
-    }
-
-    @PostMapping
-    public ResponseEntity<Producto> crear(@Valid @RequestBody Producto producto) {
-        return ResponseEntity.ok(productoService.guardar(producto));
+    public ResponseEntity<ProductoResponse> obtener(@PathVariable Long id) {
+        return ResponseEntity.ok(service.obtenerProducto(id));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Producto> actualizar(@PathVariable Long id, @Valid @RequestBody Producto producto) {
-        return ResponseEntity.ok(productoService.actualizar(id, producto));
+    public ResponseEntity<ProductoResponse> actualizar(@PathVariable Long id, @RequestBody ProductoRequest request) {
+        return ResponseEntity.ok(service.actualizarProducto(id, request));
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
-        productoService.eliminar(id);
+        service.eliminarProducto(id);
         return ResponseEntity.noContent().build();
     }
 }

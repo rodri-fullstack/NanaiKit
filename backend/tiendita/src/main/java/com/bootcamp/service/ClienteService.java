@@ -1,14 +1,14 @@
 package com.bootcamp.service;
 
-import com.bootcamp.model.Cliente;
+import com.bootcamp.dto.ClienteRequest;
+import com.bootcamp.dto.ClienteResponse;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface ClienteService {
-    List<Cliente> listarTodos();
-    Optional<Cliente> obtenerPorId(Long id);
-    Cliente guardar(Cliente cliente);
-    Cliente actualizar(Long id, Cliente cliente);
+    List<ClienteResponse> listarTodos();
+    ClienteResponse obtenerPorId(Long id);
+    ClienteResponse guardar(ClienteRequest cliente);
+    ClienteResponse actualizar(Long id, ClienteRequest cliente);
     void eliminar(Long id);
 }
