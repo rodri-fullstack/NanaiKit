@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Created by https://www.toptal.com/developers/gitignore/api/intellij,java
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij,java
 
@@ -14,6 +15,17 @@
 # Idea
 .idea/
 
+=======
+# Maven build directory
+/target/
+
+# idea
+.idea/
+
+# Maven local settings (opcional, si los personalizas)
+/.mvn/jvm.config
+
+>>>>>>> rodri-fullstack-main
 # User-specific stuff
 .idea/**/workspace.xml
 .idea/**/tasks.xml

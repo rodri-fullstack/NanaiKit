@@ -74,6 +74,9 @@ CREATE TABLE IF NOT EXISTS pedido_kit (
 );
 
 
+<<<<<<< HEAD
 -- Usamos DECIMAL(10,2) para representar el precio con precisión monetaria.
 -- stock como INT porque es un número entero de unidades.
 -- Todo está preparado para que Spring lo lea desde classpath:schema.sql.
+=======
+>>>>>>> rodri-fullstack-main

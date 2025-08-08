@@ -10,7 +10,10 @@ public class TienditaApplication {
     public static void main(String[] args) {
         // Carga variables de entorno desde .env
         Dotenv dotenv = Dotenv.configure().ignoreIfMissing().load();
+<<<<<<< HEAD
 
+=======
+>>>>>>> rodri-fullstack-main
         System.setProperty("DB_URL", dotenv.get("DB_URL", ""));
         System.setProperty("DB_USERNAME", dotenv.get("DB_USERNAME", ""));
         System.setProperty("DB_PASSWORD", dotenv.get("DB_PASSWORD", ""));
