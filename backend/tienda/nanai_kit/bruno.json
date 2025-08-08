@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "nanai_kit",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
