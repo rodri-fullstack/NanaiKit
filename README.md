@@ -26,13 +26,13 @@ Nanai Kit es una tienda online enfocada en el bienestar emocional. A través de 
 ## 📁 Estructura del repositorio
 
 NanaiKit/
-├── backend/            # Proyecto backend con Spring Boot
-│   └── tienda/         # Módulo principal: Auth, Productos, Usuarios, Config
-├── frontend/           # Interfaz web estática (HTML, CSS, JS)
-├── database/           # Scripts para crear y poblar la base de datos
+├── backend/                # Proyecto backend con Spring Boot
+│   └── tienda/            # Módulo principal: Auth, Productos, Usuarios, Config
+├── frontend/              # Interfaz web estática (HTML, CSS, JS)
+├── database/              # Scripts para crear y poblar la base de datos
 ├── .gitignore
 ├── pom.xml
-└── README.md           # Documentación del proyecto
+└── README.md              # Documentación del proyecto
 
 ---
 
