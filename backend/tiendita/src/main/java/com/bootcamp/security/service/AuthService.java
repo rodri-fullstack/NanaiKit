@@ -2,9 +2,9 @@ package com.bootcamp.security.service;
 
 import com.bootcamp.security.dto.LoginResponse;
 import com.bootcamp.security.model.Rol;
-import com.bootcamp.security.model.Usuario;
+import com.bootcamp.security.model.UsuarioSec;
 import com.bootcamp.security.repository.RolRepository;
-import com.bootcamp.security.repository.UsuarioRepository;
+import com.bootcamp.security.repository.UsuarioRepositorySec;
 import com.bootcamp.security.jwt.JwtUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -20,7 +20,7 @@ import static com.bootcamp.security.model.NombreRol.ROLE_USER;
 @RequiredArgsConstructor
 public class AuthService {
 
-    private final UsuarioRepository usuarioRepo;
+    private final UsuarioRepositorySec usuarioRepo;
     private final RolRepository rolRepo;
     private final PasswordEncoder encoder;
     private final JwtUtils jwtUtils;
@@ -34,7 +34,7 @@ public class AuthService {
         Rol rolUsuario = rolRepo.findByNombre(ROLE_USER)
                 .orElseThrow(() -> new RuntimeException("Rol ROLE_USER no encontrado"));
 
-        Usuario nuevoUsuario = new Usuario();
+        UsuarioSec nuevoUsuario = new UsuarioSec();
         nuevoUsuario.setNombre(nombre);
         nuevoUsuario.setEmail(email);
         nuevoUsuario.setPassword(encoder.encode(password));
@@ -45,7 +45,7 @@ public class AuthService {
 
     // ✅ Login: valida credenciales y genera LoginResponse con token
     public LoginResponse login(String email, String password) {
-        Usuario usuario = usuarioRepo.findByEmail(email)
+        UsuarioSec usuario = usuarioRepo.findByEmail(email)
                 .orElseThrow(() -> new BadCredentialsException("Credenciales inválidas"));
 
         if (!encoder.matches(password, usuario.getPassword())) {

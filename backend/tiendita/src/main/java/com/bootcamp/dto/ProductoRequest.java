@@ -1,10 +1,13 @@
-// DTO para peticiones (crear/actualizar productos)
 package com.bootcamp.dto;
 
-import java.math.BigDecimal;
+import lombok.Builder;
 
+@Builder
 public record ProductoRequest(
         String nombre,
-        BigDecimal precio,
-        int stock
+        String tipo,
+        String descripcion,
+        Integer stock,
+        Boolean activo,
+        java.time.LocalDateTime fechaCreacion
 ) {}

@@ -1,11 +1,14 @@
-// DTO para respuestas (consultar productos)
 package com.bootcamp.dto;
 
-import java.math.BigDecimal;
+import lombok.Builder;
 
+@Builder
 public record ProductoResponse(
-        Long id,
+        Long productoId,
         String nombre,
-        BigDecimal precio,
-        int stock
+        String tipo,
+        String descripcion,
+        Integer stock,
+        Boolean activo,
+        java.time.LocalDateTime fechaCreacion
 ) {}
