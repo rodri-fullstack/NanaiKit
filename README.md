@@ -1,4 +1,4 @@
-<img width="654" height="1118" alt="image" src="https://github.com/user-attachments/assets/94a9e09b-d675-4c14-b985-0e462c750bb3" /># 🪻 Nanai Kit - Ecommerce de Apoyo Emocional 🪻
+# 🪻 Nanai Kit - Ecommerce de Apoyo Emocional 🪻
 
 Nanai Kit es una tienda online enfocada en el bienestar emocional. A través de kits de contención pensados para diferentes necesidades emocionales, buscamos entregar herramientas accesibles y significativas para acompañar a las personas en sus procesos personales. 💖
 
