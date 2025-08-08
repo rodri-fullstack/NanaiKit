@@ -1,10 +1,17 @@
 package com.bootcamp.controller;
 
 import com.bootcamp.model.Cliente;
+import com.bootcamp.dto.ClienteRequest;
+import com.bootcamp.dto.ClienteResponse;
+import com.bootcamp.repository.ClienteRepository;
 import com.bootcamp.service.ClienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,25 +23,25 @@ public class ClienteController {
 
     private final ClienteService clienteService;
 
+    private final ClienteRepository clienteRepository;
+
     @GetMapping
-    public List<Cliente> listar() {
-        return clienteService.listarTodos();
+    public ResponseEntity<List<ClienteResponse>> listar() {
+        return ResponseEntity.ok(clienteService.listarTodos());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Cliente> obtenerPorId(@PathVariable Long id) {
-        return clienteService.obtenerPorId(id)
-                .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<ClienteResponse> obtenerPorId(@PathVariable Long id) {
+        return ResponseEntity.ok(clienteService.obtenerPorId(id));
     }
 
     @PostMapping
-    public ResponseEntity<Cliente> crear(@Valid @RequestBody Cliente cliente) {
+    public ResponseEntity<ClienteResponse> crear(@Valid @RequestBody ClienteRequest cliente) {
         return ResponseEntity.ok(clienteService.guardar(cliente));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Cliente> actualizar(@PathVariable Long id, @Valid @RequestBody Cliente cliente) {
+    public ResponseEntity<ClienteResponse> actualizar(@PathVariable Long id, @Valid @RequestBody ClienteRequest cliente) {
         return ResponseEntity.ok(clienteService.actualizar(id, cliente));
     }
 
@@ -43,4 +50,41 @@ public class ClienteController {
         clienteService.eliminar(id);
         return ResponseEntity.noContent().build();
     }
+
+
+    // FILTROS Y PAGINACION
+    @GetMapping("/buscar")
+    public ResponseEntity<Page<Cliente>> buscar(
+            @RequestParam(defaultValue = "") String nombre,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size,
+            @RequestParam(defaultValue = "nombre") String sortBy
+    ) {
+        Pageable pageable = PageRequest.of(page, size, Sort.by(sortBy));
+        Page<Cliente> resultados = clienteRepository.findByNombreContainingIgnoreCase(nombre, pageable);
+        return ResponseEntity.ok(resultados);
+    }
+
+    @GetMapping("/ordenar")
+    public ResponseEntity<Page<Cliente>> ordenar(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        Page<Cliente> clientes = clienteRepository.findAllByOrderByEmailAsc(pageable);
+        return ResponseEntity.ok(clientes);
+    }
+
+    @GetMapping("/pagina")
+    public ResponseEntity<Page<Cliente>> paginar(
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "5") int size
+    ) {
+        Pageable pageable = PageRequest.of(page, size);
+        return ResponseEntity.ok(clienteRepository.findAll(pageable));
+    }
+
 }
+
+// Recomendación: estos endpoints son útiles para listar muchos registros
+// y combinan bien con frontends modernos que permiten buscar, filtrar, ordenar, paginar.

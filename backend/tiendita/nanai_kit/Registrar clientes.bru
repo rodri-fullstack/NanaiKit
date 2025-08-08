@@ -1,0 +1,15 @@
+meta {
+  name: Registrar clientes
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{local}}/clientes
+  body: json
+  auth: inherit
+}
+
+settings {
+  encodeUrl: true
+}
