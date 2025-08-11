@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanai Kit - Inicio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/images/logoSoloLetras.png" alt="Logo Nanai Kit" class="logo">
+    <nav class="nav-menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#blog">Blog</a>
+      <a href="#test">Test</a>
+      <a href="#kits">Kits</a>
+      <a href="#nosotres">Nosotres</a>
+      <button class="btn-secondary">Registrarse</button>
+      <button class="btn-secondary">Iniciar Sesión</button>
+      <a href="#buscar"><img src="assets/images/search.png" alt="Buscar"></a>
+      <a href="#carrito"><img src="assets/images/shopping-cart.png" alt="Carrito"></a>
+    </nav>
+  </header>
+
+<section class="registro">
+  <h2>Te invitamos a registrarte y crear tu espacio seguro en Nanai Kit</h2>
+  <form id="form-registro">
+    <input type="text" id="nombre" placeholder="Nombre completo" required />
+    <input type="email" id="email" placeholder="Correo electrónico" required />
+    <input type="password" id="contrasena" placeholder="Contraseña" required />
+    <input type="text" id="direccion" placeholder="Dirección" required />
+    <input type="text" id="telefono" placeholder="Teléfono (opcional)" />
+    <input type="number" id="edad" placeholder="Edad (opcional)" min="0" />
+    <select id="genero">
+      <option value="">Género (opcional)</option>
+      <option value="Femenino">Femenino</option>
+      <option value="Masculino">Masculino</option>
+      <option value="No binario">No binario</option>
+      <option value="Otro">Otro</option>
+      <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+    </select>
+    <select id="tipo_usuario" required>
+      <option value="">Tipo de usuario</option>
+      <option value="cliente">Cliente</option>
+      <option value="admin">Administrador</option>
+    </select>
+    <button type="submit" class="btn-primary">Registrarse</button>
+  </form>
+  <p>¿Ya tienes una cuenta? <a href="#">Inicia sesión</a></p>
+</section>
+
+  <footer class="footer">
+    <div class="footer-links">
+      <a href="#">Preguntas Frecuentes</a>
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Términos de Servicio</a>
+    </div>
+    <p>&copy; 2025 Nanai Kit. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="assets/js/register.js" defer></script>
+
+</body>
+</html>
