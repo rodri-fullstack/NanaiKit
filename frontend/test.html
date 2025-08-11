@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nanai Kit - Inicio</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="stylesheet" href="assets/css/styles_test.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap&family=Philosopher:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <header class="navbar">
+    <img src="assets/images/logoSoloLetras.png" alt="Logo Nanai Kit" class="logo">
+    <nav class="nav-menu">
+      <a href="#inicio">Inicio</a>
+      <a href="#blog">Blog</a>
+      <a href="#test">Test</a>
+      <a href="#kits">Kits</a>
+      <a href="#nosotres">Nosotres</a>
+      <button class="btn-secondary">Registrarse</button>
+      <button class="btn-secondary">Iniciar Sesión</button>
+      <a href="#buscar"><img src="assets/images/search.png" alt="Buscar"></a>
+      <a href="#carrito"><img src="assets/images/shopping-cart.png" alt="Carrito"></a>
+    </nav>
+  </header>
+
+  <main>
+
+  <h1>Nanai Test</h1>
+  <h2>¿Cómo te sientes hoy?</h2>
+  <p style="text-align:center;">Responde unas pocas preguntas para obtener recomendaciones personalizadas para tu bienestar.</p>
+
+  <form id="nanaiForm">
+<br>
+    <p>1. ¿Cuál es tu estado de ánimo general?</p>
+    <div class="question" id="q1">
+      <div class="option" data-value="relajado">Relajado</div>
+      <div class="option" data-value="estresado">Estresado</div>
+      <div class="option" data-value="ansioso">Ansioso</div>
+      <div class="option" data-value="triste">Triste</div>
+      <div class="option" data-value="energizado">Energizado</div>
+    </div>
+ <p>2. ¿Qué área de tu vida te gustaría mejorar?</p>
+    <div class="question" id="q2">
+      <div class="option" data-value="sueño">Sueño</div>
+      <div class="option" data-value="estrés">Estrés</div>
+      <div class="option" data-value="energía">Energía</div>
+      <div class="option" data-value="concentración">Concentración</div>
+      <div class="option" data-value="estado de ánimo">Estado de ánimo</div>
+    </div>
+
+    <p>3. ¿Cuánto tiempo tienes para dedicar a tu bienestar hoy?</p>
+    <div class="question" id="q3">
+      <div class="option" data-value="15">15 minutos</div>
+      <div class="option" data-value="30">30 minutos</div>
+      <div class="option" data-value="60">1 hora</div>
+      <div class="option" data-value="90">Más de 1 hora</div>
+    </div>
+
+    <button id="submitBtn" type="submit">⭐ Ver mis Recomendaciones</button>
+    <div id="result"></div>
+  </form>
+
+
+ 
+  <footer class="footer">
+       <section class="social">
+      <h2>Síguenos</h2>
+      <div class="social-icons">
+        <a href="#"><img src="icon-instagram.svg" alt="Instagram">Instagram</a>
+        <a href="#"><img src="icon-facebook.svg" alt="Facebook">Facebook</a>
+        <a href="#"><img src="icon-x.svg" alt="X">X</a>
+      </div>
+    </section>
+  </main>
+
+    <div class="footer-links">
+      <a href="#">Preguntas Frecuentes</a>
+      <a href="#">Política de Privacidad</a>
+      <a href="#">Términos de Servicio</a>
+    </div>
+    <p>&copy; 2025 Nanai Kit. Todos los derechos reservados.</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
