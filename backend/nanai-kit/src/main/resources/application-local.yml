@@ -1,0 +1,21 @@
+# Para desarrollo local (localhost, root, sin contraseña)
+spring:
+  datasource:
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  sql:
+    init:
+      mode: never   # o ALWAYS si se busca que cargue archivo script de base de datos
+
+app:
+  security:
+    cors:
+      dev: true  # Deshabilita CORS para Postman en desarrollo local
