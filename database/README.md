@@ -1,8 +1,8 @@
-# 🗒️ Base de Datos - Nanai Kit 🪻
+# 🗒️Base de Datos - Nanai Kit 🪻
 
 ## Descripción del Proyecto
 
-Esta documentación describe la estructura y funcionamiento de la base de datos que soporta la plataforma de ecommerce responsiva de Nanai Kit, una plataforma especializada en kits de bienestar emocional.
+Esta documentación describe la estructura y funcionamiento de la base de datos que soporta la plataforma de ecommerce responsiva de Nanai Kit.
 
 ## 🗄️ Tecnología
 
@@ -11,11 +11,12 @@ Esta documentación describe la estructura y funcionamiento de la base de datos 
 - **Número de Tablas:** 5 tablas principales + 1 tabla de relación
 - **Arquitectura:** Base de datos relacional optimizada para ecommerce de bienestar emocional
 
+
 ## 📊 Estructura de la Base de Datos
 
 ### Diagrama Entidad-Relación
 
-La base de datos está diseñada siguiendo un modelo relacional que permite gestionar usuarios, productos, kits de bienestar, pedidos y sus detalles de manera eficiente, con un enfoque específico en la venta de kits personalizados para el bienestar emocional.
+La base de datos está diseñada siguiendo un modelo relacional que permite gestionar usuarios, productos, kits de bienestar, compras y evaluaciones emocionales de manera eficiente.
 
 ### Tablas Principales
 
@@ -93,6 +94,7 @@ Detalla los kits específicos incluidos en cada pedido.
 - `precio_unitario` (NUMERIC(10,2)) - Precio del kit al momento de la compra
 - `nombre_kit` (VARCHAR(120)) - Snapshot del nombre del kit (opcional)
 
+
 ## 🔄 Relaciones Entre Tablas
 
 El diseño de la base de datos implementa las siguientes relaciones:
@@ -104,10 +106,10 @@ El diseño de la base de datos implementa las siguientes relaciones:
   - Un kit puede contener múltiples productos (`kit.id_kit` → `kit_producto.id_kit`)
   - Un producto puede estar en múltiples kits (`producto.id_producto` → `kit_producto.id_producto`)
 
+
 ## 🚀 Configuración e Instalación
 
 ### Requisitos Previos
-
 - PostgreSQL instalado y en funcionamiento
 - Acceso de administrador para crear la base de datos
 - Herramienta de administración de bases de datos (DBeaver, pgAdmin, etc.)
@@ -118,7 +120,6 @@ El diseño de la base de datos implementa las siguientes relaciones:
    ```sql
    CREATE DATABASE nanai_kit;
    ```
-
 2. **Ejecutar creación de estructura:**
    Ejecutar el script de creación de tablas disponible en `/database/schema.sql`
 
@@ -139,7 +140,6 @@ DB_SCHEMA=nanai
 ```
 
 ## 🔍 Consideraciones de Desarrollo
-
 ### Buenas Prácticas Implementadas
 
 - **Integridad Referencial**: Todas las relaciones están definidas con claves foráneas
@@ -148,18 +148,6 @@ DB_SCHEMA=nanai
 - **Constraints**: Validaciones de datos a nivel de base de datos
 - **Esquema Separado**: Uso del esquema `nanai` para organización
 - **Auditoria**: Campo de timestamp para rastrear creación de pedidos
-
-### Optimizaciones
-
-- **Índices en Foreign Keys**: Para mejorar performance en JOINs
-- **Constraints de Validación**: Para garantizar integridad de datos
-- **Desnormalización Controlada**: Campo `nombre_kit` en `pedido_detalle` para snapshot
-
-### Seguridad
-
-- **Contraseñas Hash**: Almacenamiento seguro con bcrypt/argon2
-- **Validación de Tipos**: Uso de ENUMs para prevenir valores inválidos
-- **Restricciones CASCADE/RESTRICT**: Control de eliminación de registros
 
 ### VERSION ACTUAL: 1.1.1
 Modificaciones realizadas:
