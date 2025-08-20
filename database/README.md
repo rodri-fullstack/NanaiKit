@@ -7,8 +7,10 @@ Esta documentación describe la estructura y funcionamiento de la base de datos 
 ## 🗄️ Tecnología
 
 - **Sistema de Gestión de Base de Datos:** PostgreSQL
-- **Número de Tablas:** 7 tablas principales
-- **Arquitectura:** Base de datos relacional para ecommerce
+- **Esquema:** nanai
+- **Número de Tablas:** 5 tablas principales + 1 tabla de relación
+- **Arquitectura:** Base de datos relacional optimizada para ecommerce de bienestar emocional
+
 
 ## 📊 Estructura de la Base de Datos
 
@@ -22,98 +24,95 @@ La base de datos está diseñada siguiendo un modelo relacional que permite gest
 Almacena la información personal y de acceso de los usuarios registrados en la plataforma.
 
 **Campos principales:**
-- `usuario_id` (PK) - Identificador único del usuario
-- `nombre` - Nombre del usuario
-- `apellidos` - Apellidos del usuario
-- `email` - Correo electrónico (único)
-- `password` - Contraseña encriptada
-- `telefono` - Número de contacto
-- `direccion` - Dirección de entrega
-- `edad` - Edad del usuario
-- `genero` - Género del usuario
-- `tipo_usuario` - Tipo de cuenta (cliente, admin, empresa, etc.)
-- `activo` - Estado de la cuenta
-
-#### 🛒 `compra`
-Registra las transacciones realizadas por los usuarios.
-
-**Campos principales:**
-- `compra_id` (PK) - Identificador único de la compra
-- `cliente_id` (FK) - Referencia al usuario que realiza la compra
-- `fecha_compra` - Timestamp de la transacción
-- `total` - Monto total de la compra
-- `forma_pago` - Método de pago utilizado
-- `estado_compra` - Estado actual del pedido
-
-#### 📋 `compra_detalle`
-Detalla los elementos específicos de cada compra.
-
-**Campos principales:**
-- `compra_detalle_id` (PK) - Identificador único del detalle
-- `compra_id` (FK) - Referencia a la compra principal
-- `kit_id` (FK) - Kit adquirido
-- `cantidad` - Cantidad comprada
-
-#### 🎁 `kit`
-Catálogo de kits de bienestar emocional disponibles.
-
-**Campos principales:**
-- `kit_id` (PK) - Identificador único del kit
-- `nombre` - Nombre del kit
-- `nivel_ansiedad` - Nivel de ansiedad que aborda
-- `descripcion` - Descripción detallada del kit
-- `precio` - Precio del kit
-- `stock` - Cantidad disponible
-- `activo` - Estado de disponibilidad
-- `tipo_contenido_digital` - Tipo de contenido digital incluido
-- `url_contenido` - Enlace al contenido digital
+- `id_usuario` (BIGSERIAL, PK) - Identificador único del usuario
+- `nombre` (VARCHAR(100)) - Nombre completo del usuario
+- `email` (VARCHAR(255), UNIQUE) - Correo electrónico único
+- `contrasena_hash` (TEXT) - Contraseña encriptada (bcrypt/argon2)
+- `direccion` (VARCHAR(100)) - Dirección de entrega
+- `comuna` (VARCHAR(100)) - Comuna de residencia
+- `telefono` (VARCHAR(50)) - Número de contacto
+- `rol` (rol_usuario_enum) - Rol del usuario (ADMIN, USUARIO)
+- `activo` (BOOLEAN) - Estado de la cuenta (por defecto TRUE)
 
 #### 📦 `producto`
-Inventario de productos individuales que componen los kits.
+Inventario de productos individuales que se utilizan para armar los kits. Los productos no se venden por separado.
 
 **Campos principales:**
-- `producto_id` (PK) - Identificador único del producto
-- `nombre` - Nombre del producto
-- `tipo` - Categoría del producto
-- `descripcion` - Descripción del producto
-- `stock` - Inventario disponible
-- `activo` - Estado del producto
-- `fecha_creacion` - Fecha de registro
+- `id_producto` (BIGSERIAL, PK) - Identificador único del producto
+- `sku` (VARCHAR(60), UNIQUE) - Código único del producto
+- `nombre` (VARCHAR(120)) - Nombre descriptivo del producto
+- `costo` (NUMERIC(10,2)) - Costo unitario del producto
+- `stock` (INTEGER) - Cantidad disponible en inventario
+- `activo` (BOOLEAN) - Estado de disponibilidad del producto
+
+#### 🎁 `kit`
+Catálogo de kits de bienestar emocional disponibles para la venta. Es el único producto que los clientes pueden comprar.
+
+**Campos principales:**
+- `id_kit` (BIGSERIAL, PK) - Identificador único del kit
+- `codigo` (VARCHAR(60), UNIQUE) - Código único del kit (ej: KIT_GRATITUD)
+- `nombre` (VARCHAR(120)) - Nombre comercial del kit
+- `nivel` (nivel_kit_enum) - Nivel del kit según intensidad emocional:
+  - `N1_PREVENTIVO` - Para prevención y bienestar general
+  - `N2_ALERTA` - Para situaciones de alerta emocional
+  - `N3_SOS` - Para crisis y primeros auxilios emocionales
+- `precio` (NUMERIC(10,2)) - Precio de venta del kit
+- `descripcion_breve` (TEXT) - Descripción corta para marketing
+- `descripcion` (TEXT) - Descripción detallada del kit
+- `activo` (BOOLEAN) - Estado de disponibilidad para la venta
 
 #### 🔗 `kit_producto`
-Tabla de relación que define qué productos incluye cada kit.
+Tabla de relación que define la "receta" o composición de cada kit (Bill of Materials - BOM).
 
 **Campos principales:**
-- `kit_producto_id` (PK) - Identificador único de la relación
-- `kit_id` (FK) - Referencia al kit
-- `producto_id` (FK) - Referencia al producto
+- `id_kit` (BIGINT, FK) - Referencia al kit
+- `id_producto` (BIGINT, FK) - Referencia al producto incluido
+- `cantidad` (INTEGER) - Cantidad del producto en el kit
+- **Clave Primaria Compuesta:** (id_kit, id_producto)
 
-#### 🧠 `test_emocional`
-Registra las evaluaciones emocionales de los usuarios para personalizar recomendaciones.
+#### 🛒 `pedido`
+Registra los pedidos realizados por los usuarios (cabecera de la transacción).
 
 **Campos principales:**
-- `test_id` (PK) - Identificador único del test
-- `usuario_id` (FK) - Usuario que realiza el test
-- `resultado` - Resultado de la evaluación
-- `fecha` - Fecha de realización
+- `id_pedido` (BIGSERIAL, PK) - Identificador único del pedido
+- `id_usuario` (BIGINT, FK) - Usuario que realiza el pedido
+- `estado` (estado_pedido_enum) - Estado del pedido:
+  - `pendiente` - Pedido creado, pendiente de pago
+  - `pagado` - Pedido pagado y confirmado
+  - `cancelado` - Pedido cancelado
+- `total` (NUMERIC(10,2)) - Monto total del pedido
+- `fecha_creacion` (TIMESTAMPTZ) - Fecha y hora de creación del pedido
+
+#### 📋 `pedido_detalle`
+Detalla los kits específicos incluidos en cada pedido.
+
+**Campos principales:**
+- `id_pedido_detalle` (BIGSERIAL, PK) - Identificador único del detalle
+- `id_pedido` (BIGINT, FK) - Referencia al pedido principal
+- `id_kit` (BIGINT, FK) - Kit incluido en el pedido
+- `cantidad` (INTEGER) - Cantidad de kits solicitados
+- `precio_unitario` (NUMERIC(10,2)) - Precio del kit al momento de la compra
+- `nombre_kit` (VARCHAR(120)) - Snapshot del nombre del kit (opcional)
+
 
 ## 🔄 Relaciones Entre Tablas
 
 El diseño de la base de datos implementa las siguientes relaciones:
 
-- **Usuario → Test Emocional**: Un usuario puede realizar múltiples tests (`usuario.usuario_id` → `test_emocional.usuario_id`)
-- **Usuario → Compra**: Un usuario puede tener múltiples compras (`usuario.usuario_id` → `compra.cliente_id`)
-- **Compra → Compra Detalle**: Una compra puede tener múltiples detalles (`compra.compra_id` → `compra_detalle.compra_id`)
-- **Kit → Compra Detalle**: Un kit puede estar en múltiples detalles de compra (`kit.kit_id` → `compra_detalle.kit_id`)
-- **Kit → Kit Producto**: Relación muchos a muchos entre kits y productos (`kit.kit_id` → `kit_producto.kit_id`)
-- **Producto → Kit Producto**: Un producto puede estar en múltiples kits (`producto.producto_id` → `kit_producto.producto_id`)
+- **Usuario → Pedido**: Un usuario puede tener múltiples pedidos (`usuario.id_usuario` → `pedido.id_usuario`)
+- **Pedido → Pedido Detalle**: Un pedido puede tener múltiples detalles (`pedido.id_pedido` → `pedido_detalle.id_pedido`)
+- **Kit → Pedido Detalle**: Un kit puede estar en múltiples detalles de pedido (`kit.id_kit` → `pedido_detalle.id_kit`)
+- **Kit ↔ Producto**: Relación muchos a muchos a través de `kit_producto`:
+  - Un kit puede contener múltiples productos (`kit.id_kit` → `kit_producto.id_kit`)
+  - Un producto puede estar en múltiples kits (`producto.id_producto` → `kit_producto.id_producto`)
+
 
 ## 🚀 Configuración e Instalación
 
 ### Requisitos Previos
-
+- PostgreSQL instalado y en funcionamiento
 - Acceso de administrador para crear la base de datos
-- Herramienta de administración de bases de datos como por ejemplo: DBeaver.
+- Herramienta de administración de bases de datos (DBeaver, pgAdmin, etc.)
 
 ### Pasos de Instalación
 
@@ -121,37 +120,45 @@ El diseño de la base de datos implementa las siguientes relaciones:
    ```sql
    CREATE DATABASE nanai_kit;
    ```
-
-2. **Ejecutar creación de tablas**
-   El script de creación de tablas está disponible en el archivo `/database/seed.sql`
+2. **Ejecutar creación de estructura:**
+   Ejecutar el script de creación de tablas disponible en `/database/schema.sql`
 
 3. **Cargar datos iniciales:**
-   El script de datos se encuentra disponible en el archivo `/database/schema.sql`
+   Ejecutar el script de datos disponible en `/database/seed.sql`
 
 ### Variables de Entorno
 
-Para unir con el backend, no olvidar configurar las siguientes variables en tu archivo `.env`:
+Para conectar con el backend, configurar las siguientes variables en tu archivo `.env`:
 
 ```env
 DB_HOST=localhost
-DB_PORT=3306
+DB_PORT=5432
 DB_NAME=nanai_kit
 DB_USER=tu_usuario
 DB_PASSWORD=tu_contraseña
+DB_SCHEMA=nanai
 ```
 
-## 📝 Consideraciones de Desarrollo
-
+## 🔍 Consideraciones de Desarrollo
 ### Buenas Prácticas Implementadas
 
 - **Integridad Referencial**: Todas las relaciones están definidas con claves foráneas
-- **Auditoria**: Campos de fecha para rastrear creación y modificación
+- **Tipos Enumerados**: Uso de ENUMs para campos con valores predefinidos
+- **Índices Optimizados**: Índices estratégicos en campos de consulta frecuente
+- **Constraints**: Validaciones de datos a nivel de base de datos
+- **Esquema Separado**: Uso del esquema `nanai` para organización
+- **Auditoria**: Campo de timestamp para rastrear creación de pedidos
 
-### Recomendaciones
-
-- Realizar respaldos regulares de la base de datos.
-- Monitorear el rendimiento de las consultas más frecuentes.
+### VERSION ACTUAL: 1.1.1
+Modificaciones realizadas:
+- Reestructuración completa de la base de datos
+- Eliminación de tablas innecesarias (test_emocional, compra/compra_detalle)
+- Optimización para modelo de negocio basado en kits
+- Implementación de ENUMs para mejor control de datos
+- Mejora en la estructura de pedidos y detalles
+- Adición de productos y kits de ejemplo
+- Implementación de esquema `nanai` para mejor organización
 
 ---
 
- Creado con 💖 para proyecto **Nanai Kit 🪻** 
+ Creado con 💖 para proyecto **Nanai Kit 🪻**

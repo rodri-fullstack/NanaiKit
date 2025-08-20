@@ -5,150 +5,110 @@
                    Creación de Base de Datos en PostgreSQL                     
 ╠════════════════════════════════════════════════════════════════════════════════╣
   📋 Script para implementación de base de datos de Nanai Kit.                 
-  📝 Version: 1.0                                                              
+  📝 Version: 1.1.1                                                              
 ╚════════════════════════════════════════════════════════════════════════════════╝
 */
 
--- Tabla Usuario
-CREATE TABLE IF NOT EXISTS usuario (
-    usuario_id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellidos VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    telefono VARCHAR(20) NOT NULL,
-    direccion TEXT NOT NULL,
-    edad INTEGER CHECK (edad > 0 AND edad < 150),
-    genero VARCHAR(30) CHECK (genero IN ('Femenino', 'Masculino', 'No binario', 'Otro', 'Prefiero no decirlo')),
-    tipo_usuario VARCHAR(20) DEFAULT 'cliente' CHECK (tipo_usuario IN ('cliente', 'empresa')),
-    activo BOOLEAN DEFAULT true,
-    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+CREATE SCHEMA IF NOT EXISTS nanai;
+SET search_path TO nanai, public;
 
--- Tabla test_emocional
-CREATE TABLE IF NOT EXISTS test_emocional (
-    test_id SERIAL PRIMARY KEY,
-    usuario_id INT REFERENCES usuario(usuario_id),
-    resultado TEXT,
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Tabla compra
-CREATE TABLE compra (
-    compra_id SERIAL PRIMARY KEY,
-    cliente_id INTEGER NOT NULL,
-    fecha_compra TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    total DECIMAL(12,2) NOT NULL CHECK (total >= 0),
-    forma_pago VARCHAR(50) DEFAULT 'efectivo',
-    estado_compra VARCHAR(30) DEFAULT 'pendiente' CHECK (estado_compra IN ('pendiente', 'procesando', 'enviado', 'entregado', 'cancelado')),
-    
-    -- Clave foránea
-    CONSTRAINT fk_compra_cliente 
-        FOREIGN KEY (cliente_id) 
-        REFERENCES usuario(usuario_id) 
-        ON DELETE CASCADE
-);
-
--- Tabla compra_detalle (tabla intermedia entre compra y kit)
-CREATE TABLE compra_detalle (
-    compra_detalle_id SERIAL PRIMARY KEY,
-    compra_id INTEGER NOT NULL,
-    kit_id INTEGER NOT NULL,
-    cantidad INTEGER NOT NULL DEFAULT 1 CHECK (cantidad > 0),
-    precio_unitario DECIMAL(10,2) NOT NULL CHECK (precio_unitario >= 0),
-    
-    -- Claves foráneas
-    CONSTRAINT fk_detalle_compra 
-        FOREIGN KEY (compra_id) 
-        REFERENCES compra(compra_id) 
-        ON DELETE CASCADE,
-    
-    CONSTRAINT fk_detalle_kit 
-        FOREIGN KEY (kit_id) 
-        REFERENCES kit(kit_id) 
-        ON DELETE RESTRICT
-);
-
--- Tabla Kit
-CREATE TABLE IF NOT EXISTS kit (
-    kit_id SERIAL PRIMARY KEY,
-    nombre VARCHAR(200) NOT NULL,
-    nivel_ansiedad VARCHAR(50) CHECK (nivel_ansiedad IN ('1- Preventivo', '2- Alerta', '3- SOS Urgencia')),
-    descripcion TEXT,
-    precio DECIMAL(10,2) NOT NULL CHECK (precio >= 9990),
-    stock INTEGER DEFAULT 0 CHECK (stock >= 0),
-    activo BOOLEAN DEFAULT true,
-    tipo_contenido_digital VARCHAR(100),
-    url_contenido VARCHAR(500),
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Tabla Producto
-CREATE TABLE IF NOT EXISTS producto (
-    producto_id SERIAL PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    tipo VARCHAR(50),
-    descripcion TEXT,
-    stock INTEGER DEFAULT 0 CHECK (stock >= 0),
-    activo BOOLEAN DEFAULT TRUE,
-    fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
-
--- Tabla Kit_Producto (relación N:M entre kit y producto)
-CREATE TABLE IF NOT EXISTS kit_producto (
-    kit_producto_id SERIAL PRIMARY KEY,
-    kit_id INT REFERENCES kit(kit_id),
-    producto_id INT REFERENCES producto(producto_id)
-);
-
-
-
-
-
-
-
-
-
-
--- Índices para mejorar rendimiento
-CREATE INDEX idx_usuario_email ON usuario(email);
-CREATE INDEX idx_usuario_activo ON usuario(activo);
-CREATE INDEX idx_producto_activo ON producto(activo);
-CREATE INDEX idx_compra_cliente ON compra(cliente_id);
-CREATE INDEX idx_compra_fecha ON compra(fecha_compra);
-CREATE INDEX idx_compra_estado ON compra(estado_compra);
-CREATE INDEX idx_kit_activo ON kit(activo);
-CREATE INDEX idx_kit_nivel_ansiedad ON kit(nivel_ansiedad);
-CREATE INDEX idx_test_usuario ON test_emocional(usuario_id);
-CREATE INDEX idx_test_fecha ON test_emocional(fecha);
-
--- Función para actualizar automáticamente el total de la compra
-CREATE OR REPLACE FUNCTION actualizar_total_compra()
-RETURNS TRIGGER AS $$
+-- =================
+-- Tipos (ENUM)
+-- =================
+DO $$
 BEGIN
-    UPDATE compra 
-    SET total = (
-        SELECT COALESCE(SUM(subtotal), 0)
-        FROM compra_detalle 
-        WHERE compra_id = COALESCE(NEW.compra_id, OLD.compra_id)
-    )
-    WHERE compra_id = COALESCE(NEW.compra_id, OLD.compra_id);
-    
-    RETURN COALESCE(NEW, OLD);
-END;
-$$ LANGUAGE plpgsql;
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'rol_usuario_enum') THEN
+    CREATE TYPE rol_usuario_enum AS ENUM ('ADMIN','USUARIO');
+  END IF;
 
--- Trigger para actualizar el total automáticamente
-CREATE TRIGGER trigger_actualizar_total_compra
-    AFTER INSERT OR UPDATE OR DELETE ON compra_detalle
-    FOR EACH ROW
-    EXECUTE FUNCTION actualizar_total_compra();
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'nivel_kit_enum') THEN
+    CREATE TYPE nivel_kit_enum AS ENUM ('N1_PREVENTIVO','N2_ALERTA','N3_SOS');
+  END IF;
 
--- Comentarios en las tablas
-COMMENT ON TABLE usuario IS 'Tabla de usuarios del sistema';
-COMMENT ON TABLE producto IS 'Catálogo de productos disponibles';
-COMMENT ON TABLE compra IS 'Registro de compras realizadas';
-COMMENT ON TABLE kit IS 'Kits de productos para diferentes niveles de ansiedad';
-COMMENT ON TABLE compra_detalle IS 'Detalle de productos en cada compra';
-COMMENT ON TABLE kit_producto IS 'Relación entre kits y productos';
-COMMENT ON TABLE test_emocional IS 'Resultados de tests emocionales de usuarios';
+  IF NOT EXISTS (SELECT 1 FROM pg_type WHERE typname = 'estado_pedido_enum') THEN
+    CREATE TYPE estado_pedido_enum AS ENUM ('pendiente','pagado','cancelado');
+  END IF;
+END$$;
+
+-- =================
+-- 1) Usuario
+-- =================
+CREATE TABLE IF NOT EXISTS usuario (
+  id_usuario       BIGSERIAL PRIMARY KEY,
+  nombre           VARCHAR(100)   NOT NULL,
+  email            VARCHAR(255)   NOT NULL UNIQUE,
+  contrasena_hash  TEXT           NOT NULL,              -- hash (bcrypt/argon2), nunca texto plano
+  direccion	   VARCHAR(100)   NOT NULL,
+  comuna 	   VARCHAR(100)   NOT NULL,
+  telefono 	   VARCHAR(50)    NOT NULL,
+  rol              rol_usuario_enum NOT NULL DEFAULT 'USUARIO',
+  activo           BOOLEAN        NOT NULL DEFAULT TRUE
+);
+
+-- =================
+-- 2) Producto (inventario para armar kits; no se vende suelto)
+-- =================
+CREATE TABLE IF NOT EXISTS producto (
+  id_producto  BIGSERIAL PRIMARY KEY,
+  sku          VARCHAR(60)    NOT NULL UNIQUE,
+  nombre       VARCHAR(120)   NOT NULL,
+  costo        NUMERIC(10,2)  NOT NULL DEFAULT 0 CHECK (costo >= 0),
+  stock        INTEGER        NOT NULL DEFAULT 0 CHECK (stock >= 0),
+  activo       BOOLEAN        NOT NULL DEFAULT TRUE
+);
+
+-- =================
+-- 3) Kit (lo único que se vende)
+-- =================
+CREATE TABLE IF NOT EXISTS kit (
+  id_kit            BIGSERIAL PRIMARY KEY,
+  codigo            VARCHAR(60)     NOT NULL UNIQUE,     -- ej: KIT_GRATITUD
+  nombre            VARCHAR(120)    NOT NULL,
+  nivel             nivel_kit_enum  NOT NULL,            -- N1_PREVENTIVO | N2_ALERTA | N3_SOS
+  precio            NUMERIC(10,2)   NOT NULL CHECK (precio >= 0),
+  descripcion_breve TEXT,
+  descripcion       TEXT,
+  activo            BOOLEAN         NOT NULL DEFAULT TRUE
+);
+
+-- =================
+-- 4) Receta del kit (BOM): qué productos y cuántas unidades lleva
+-- =================
+CREATE TABLE IF NOT EXISTS kit_producto (
+  id_kit       BIGINT  NOT NULL REFERENCES kit(id_kit) ON DELETE CASCADE,
+  id_producto  BIGINT  NOT NULL REFERENCES producto(id_producto) ON DELETE RESTRICT,
+  cantidad     INTEGER NOT NULL CHECK (cantidad > 0),
+  PRIMARY KEY (id_kit, id_producto)
+);
+
+-- Índices útiles mínimos
+CREATE INDEX IF NOT EXISTS idx_kit_producto_producto ON kit_producto(id_producto);
+
+-- =================
+-- 5) Pedido (cabecera)
+-- =================
+CREATE TABLE IF NOT EXISTS pedido (
+  id_pedido      BIGSERIAL PRIMARY KEY,
+  id_usuario     BIGINT REFERENCES usuario(id_usuario) ON DELETE SET NULL,
+  estado         estado_pedido_enum NOT NULL DEFAULT 'pendiente',
+  total          NUMERIC(10,2)      NOT NULL DEFAULT 0 CHECK (total >= 0),
+  fecha_creacion TIMESTAMPTZ        NOT NULL DEFAULT now()
+);
+
+CREATE INDEX IF NOT EXISTS idx_pedido_usuario ON pedido(id_usuario);
+CREATE INDEX IF NOT EXISTS idx_pedido_estado  ON pedido(estado);
+
+-- =================
+-- 6) Pedido detalle (solo kits)
+-- =================
+CREATE TABLE IF NOT EXISTS pedido_detalle (
+  id_pedido_detalle BIGSERIAL PRIMARY KEY,
+  id_pedido         BIGINT  NOT NULL REFERENCES pedido(id_pedido) ON DELETE CASCADE,
+  id_kit            BIGINT  NOT NULL REFERENCES kit(id_kit) ON DELETE RESTRICT,
+  cantidad          INTEGER NOT NULL CHECK (cantidad > 0),
+  precio_unitario   NUMERIC(10,2) NOT NULL CHECK (precio_unitario >= 0),
+  nombre_kit        VARCHAR(120)  -- snapshot opcional
+);
+
+CREATE INDEX IF NOT EXISTS idx_detalle_pedido ON pedido_detalle(id_pedido);
+CREATE INDEX IF NOT EXISTS idx_detalle_kit    ON pedido_detalle(id_kit);

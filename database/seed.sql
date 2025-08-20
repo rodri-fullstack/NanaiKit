@@ -6,111 +6,129 @@
 ╠════════════════════════════════════════════════════════════════════════════════╣
   📋 Script para ingreso de datos sugeridos al inicio de la base de datos de 
   Nanai Kit.                 
-  📝 Version: 1.0                                                              
+  📝 Version: 1.1.1                                                              
 ╚════════════════════════════════════════════════════════════════════════════════╝
 */
 
--- Productos
-INSERT INTO producto (nombre, tipo, descripcion, stock, activo) 
-VALUES
-	('Taza', 'Producto físico', 'Taza con diseño motivacional para acompañar momentos de calma y reflexión.', 50, true),
-	('Infusión Calmante', 'Producto consumible', 'Mezcla de hierbas naturales para promover la relajación y reducir el estrés.', 100, true),
-	('Cuaderno de Gratitud', 'Producto físico', 'Cuaderno diseñado para registrar pensamientos y agradecimientos diarios.', 40, true),
-	('Posavasos', 'Producto físico', 'Juego de posavasos con frases inspiradoras para acompañar bebidas calientes.', 60, true),
-	('Stickers', 'Producto físico', 'Set de pegatinas con diseños relacionados a bienestar y motivación.', 120, true),
-	('Luz de calma', 'Producto físico', 'Lámpara con luz suave para crear ambientes relajantes en cualquier espacio.', 30, true),
-	('Planner Semanal', 'Producto físico', 'Agenda semanal para planificar actividades, con espacio para metas y autocuidado.', 50, true),
-	('Infusión energizante', 'Producto consumible', 'Té natural que ayuda a activar cuerpo y mente para el día a día.', 80, true),
-	('Tarjetas para hábitos', 'Producto físico', 'Cartas diseñadas para fomentar la creación y seguimiento de hábitos saludables.', 70, true),
-	('Aromaterapia energizante', 'Producto físico', 'Aceites esenciales para estimular energía y concentración.', 40, true),
-	('Liga de ejercicio', 'Producto físico', 'Banda elástica para ejercicios de resistencia y tonificación.', 100, true),
-	('Reloj', 'Producto físico', 'Reloj de pulsera con diseño funcional para ayudar a gestionar el tiempo.', 35, true),
-	('Libro de respiración guiada', 'Producto físico', 'Guía con técnicas de respiración para reducir ansiedad y mejorar el bienestar.', 25, true),
-	('Libro de Mandalas', 'Producto físico', 'Libro para colorear mandalas que ayuda a la relajación y concentración.', 40, true),
-	('Lápices', 'Producto físico', 'Set de lápices de colores para actividades creativas y artísticas.', 90, true),
-	('Aromaterapia', 'Producto físico', 'Aceites esenciales para promover el bienestar emocional y físico.', 50, true),
-	('Fanzine', 'Producto físico', 'Publicación pequeña con contenido sobre autocuidado y bienestar emocional.', 20, true),
-	('Cojín de contención emocional', 'Producto físico', 'Cojín diseñado para brindar confort y apoyo emocional en momentos difíciles.', 45, true),
-	('Botella con frases', 'Producto físico', 'Botella reutilizable con mensajes motivacionales impresos para inspirar todo el día.', 55, true),
-	('Cuaderno de autoexploración emocional', 'Producto físico', 'Cuaderno con ejercicios y preguntas para explorar y entender las emociones.', 30, true),
-	('Guía de autocuidado', 'Producto físico/digital', 'Manual con estrategias prácticas para cuidar la salud emocional y física.', 100, true),
-	('Semillas para plantar', 'Producto físico', 'Paquete de semillas para cultivo de plantas que fomentan la conexión con la naturaleza.', 70, true),
-	('Antifaz para dormir', 'Producto físico', 'Máscara para los ojos que ayuda a bloquear la luz y mejorar el descanso.', 60, true),
-	('Frases de contención', 'Producto físico/digital', 'Colección de frases motivacionales y de apoyo para momentos de crisis.', 100, true),
-	('Diario Emocional', 'Producto físico', 'Diario para registrar emociones diarias y facilitar la autorreflexión.', 40, true),
-	('Peluche de contención emocional', 'Producto físico', 'Peluche suave diseñado para ofrecer confort en situaciones de estrés o ansiedad.', 50, true),
-	('Guía para episodios de crisis', 'Producto físico/digital', 'Manual con pasos y recomendaciones para manejar episodios emocionales críticos.', 75, true),
-	('Juego de autorregulación', 'Producto físico', 'Juego educativo para aprender técnicas de regulación emocional de forma lúdica.', 25, true),
-	('Tarjetas de calma', 'Producto físico', 'Cartas con ejercicios breves para inducir calma y control en momentos de estrés.', 80, true),
-	('Libro de autoayuda', 'Producto físico', 'Texto con herramientas y consejos para mejorar la salud mental y emocional.', 40, true),
-	('Flores de Bach', 'Producto consumible', 'Preparado natural para situaciones de emergencia emocional, basado en flores de Bach.', 60, true),
-	('Velas aromáticas', 'Producto físico', 'Velas aromáticas para crear ambientes relajantes y propiciar el bienestar.', 70, true),
-	('Infusión relajante', 'Producto consumible', 'Té de hierbas para promover la relajación y un sueño reparador.', 90, true);
+-- ===========
+-- Productos (inventario base)
+-- ===========
+INSERT INTO producto (sku, nombre, costo, stock) VALUES
+-- Kit Gratitud
+('TAZA', 'Taza', 1500, 100),
+('INF_CALM', 'Infusión Calmante', 500, 200),
+('CUAD_GRAT', 'Cuaderno de Gratitud', 1200, 80),
+('POSA', 'Posavasos', 200, 150),
+('STICKERS', 'Stickers', 100, 300),
+('LUZ_CALMA', 'Luz de calma', 1800, 60),
 
+-- Kit Rutina
+('PLAN_SEM', 'Planner Semanal', 900, 90),
+('INF_ENER', 'Infusión Energizante', 500, 120),
+('HAB_TAR', 'Tarjetas para hábitos', 600, 110),
+('AROMA_EN', 'Aromaterapia Energizante', 900, 70),
+('LIGA_EJ', 'Liga de ejercicio', 700, 75),
+('RELOJ', 'Reloj', 2500, 40),
+
+-- Kit Calma
+('LIB_RESP', 'Libro de respiración guiada', 2500, 50),
+('LIB_MAND', 'Libro de Mandalas', 2000, 60),
+('LAPICES', 'Lápices', 800, 100),
+('AROMA_STD', 'Aromaterapia', 900, 70),
+('FANZINE', 'Fanzine', 500, 80),
+('COJIN', 'Cojín de contención emocional', 2500, 40),
+
+-- Kit Renace
+('BOTELLA', 'Botella con frases', 1500, 60),
+('CUAD_AUTO', 'Cuaderno de autoexploración emocional', 1200, 70),
+('GUIA_AUTO', 'Guía de autocuidado', 1000, 90),
+('SEMILLAS', 'Semillas para plantar', 700, 100),
+('ANTIFAZ', 'Antifaz para dormir', 800, 80),
+
+-- Kit Contención
+('FRASES', 'Frases de contención', 500, 200),
+('DIARIO_EMO', 'Diario emocional', 1200, 70),
+('PELUCHE', 'Peluche de contención emocional', 3000, 40),
+('GUIA_CRISIS', 'Guía para episodios de crisis', 1000, 60),
+
+-- Kit Ansiedad / Insomnio / Pánico
+('JUEGO_AUTO', 'Juego de autorregulación', 1500, 60),
+('TAR_CALMA', 'Tarjetas de calma', 600, 100),
+('LIB_AUTO', 'Libro de autoayuda', 2000, 50),
+('FLORES_BACH', 'Flores de Bach SOS', 2500, 30),
+('VELAS', 'Velas', 700, 100),
+('INF_RELAX', 'Infusión relajante', 600, 120);
+
+-- ===========
 -- Kits
-INSERT INTO kit (nombre, nivel_ansiedad, descripcion, precio, stock, activo, tipo_contenido_digital, url)
-VALUES
-    ('Kit Gratitud', '1- Preventivo', 'Para valorar lo cotidiano y cultivar pensamientos positivos.', 9990.00, 20, TRUE, 'pdf_ejercicios', 'https://nanaikit.com/contenido/gratitud-ejercicios-diarios.pdf'),
-    ('Kit Rutina', '1- Preventivo', 'Para recuperar hábitos y estructura diaria con amabilidad.', 12990.00, 20, TRUE, 'planificador_digital', 'https://nanaikit.com/contenido/rutina-planificador-habitos.pdf'),
-    ('Kit Calma', '2- Alerta', 'Para bajar la intensidad, respirar y volver al cuerpo.', 15990.00, 20, TRUE, 'audio_meditacion', 'https://nanaikit.com/contenido/calma-meditacion-respiracion.mp3'),
-    ('Kit Renace', '2- Alerta', 'Para dar sentido a los cambios, procesar lo vivido y comenzar de nuevo.', 17990.00, 20, TRUE, 'video_reflexion', 'https://nanaikit.com/contenido/renace-reflexiones-cambio.mp4'),
-    ('Kit Contención', '3- SOS Urgencia', 'Para brindar compañía simbólica en estados de tristeza profunda, duelo o aislamiento emocional.', 18990.00, 20, TRUE, 'audio_contencion', 'https://nanaikit.com/contenido/contencion-voz-acompanamiento.mp3'),
-    ('Kit Ansiedad, Insomio, Pánico', '3- SOS Urgencia', 'Primeros auxilios emocionales ante ataques de ansiedad, insomnio o pánico.', 19990.00, 20, TRUE, 'audio_sos', 'https://nanaikit.com/contenido/ansiedad-ejercicios-emergencia.mp3');
+-- ===========
+INSERT INTO kit (codigo, nombre, nivel, precio, descripcion_breve) VALUES
+('KIT_GRATITUD', 'Kit Gratitud', 'N1_PREVENTIVO', 9990, 'Para valorar lo cotidiano y cultivar pensamientos positivos.'),
+('KIT_RUTINA', 'Kit Rutina', 'N1_PREVENTIVO', 12990, 'Para recuperar hábitos y estructura diaria con amabilidad.'),
+('KIT_CALMA', 'Kit Calma', 'N2_ALERTA', 15990, 'Para bajar la intensidad, respirar y volver al cuerpo.'),
+('KIT_RENACE', 'Kit Renace', 'N2_ALERTA', 17990, 'Para dar sentido a los cambios y comenzar de nuevo.'),
+('KIT_CONTENCION', 'Kit Contención', 'N3_SOS', 18990, 'Para brindar compañía simbólica en estados de tristeza profunda.'),
+('KIT_ANSIEDAD', 'Kit Ansiedad - Insomnio - Pánico', 'N3_SOS', 19990, 'Primeros auxilios emocionales ante ataques de ansiedad, insomnio o pánico.');
 
+-- ===========
+-- Recetas (Kit → Productos)
+-- ===========
+-- Gratitud
+INSERT INTO kit_producto VALUES
+((SELECT id_kit FROM kit WHERE codigo='KIT_GRATITUD'), (SELECT id_producto FROM producto WHERE sku='TAZA'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_GRATITUD'), (SELECT id_producto FROM producto WHERE sku='INF_CALM'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_GRATITUD'), (SELECT id_producto FROM producto WHERE sku='CUAD_GRAT'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_GRATITUD'), (SELECT id_producto FROM producto WHERE sku='POSA'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_GRATITUD'), (SELECT id_producto FROM producto WHERE sku='STICKERS'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_GRATITUD'), (SELECT id_producto FROM producto WHERE sku='LUZ_CALMA'), 1);
 
--- Kit_Producto
-INSERT INTO kit_producto (kit_id, producto_id)
-VALUES
-    -- Kit Gratitud (kit_id = 1)
-    (1, 1),  -- Taza
-    (1, 2),  -- Infusión Calmante
-    (1, 3),  -- Cuaderno de Gratitud
-    (1, 4),  -- Posavasos
-    (1, 5),  -- Stickers
-    (1, 6),  -- Luz de calma
+-- Rutina
+INSERT INTO kit_producto VALUES
+((SELECT id_kit FROM kit WHERE codigo='KIT_RUTINA'), (SELECT id_producto FROM producto WHERE sku='PLAN_SEM'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RUTINA'), (SELECT id_producto FROM producto WHERE sku='INF_ENER'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RUTINA'), (SELECT id_producto FROM producto WHERE sku='STICKERS'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RUTINA'), (SELECT id_producto FROM producto WHERE sku='HAB_TAR'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RUTINA'), (SELECT id_producto FROM producto WHERE sku='AROMA_EN'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RUTINA'), (SELECT id_producto FROM producto WHERE sku='LIGA_EJ'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RUTINA'), (SELECT id_producto FROM producto WHERE sku='RELOJ'), 1);
 
-    -- Kit Rutina (kit_id = 2)
-    (2, 7),  -- Planner Semanal
-    (2, 8),  -- Infusión energizante
-    (2, 5),  -- Stickers
-    (2, 9),  -- Tarjetas para hábitos
-    (2, 10), -- Aromaterapia energizante
-    (2, 11), -- Liga de ejercicio
-    (2, 12), -- Reloj
+-- Calma
+INSERT INTO kit_producto VALUES
+((SELECT id_kit FROM kit WHERE codigo='KIT_CALMA'), (SELECT id_producto FROM producto WHERE sku='LIB_RESP'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CALMA'), (SELECT id_producto FROM producto WHERE sku='INF_CALM'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CALMA'), (SELECT id_producto FROM producto WHERE sku='LIB_MAND'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CALMA'), (SELECT id_producto FROM producto WHERE sku='LAPICES'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CALMA'), (SELECT id_producto FROM producto WHERE sku='AROMA_STD'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CALMA'), (SELECT id_producto FROM producto WHERE sku='FANZINE'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CALMA'), (SELECT id_producto FROM producto WHERE sku='COJIN'), 1);
 
-    -- Kit Calma (kit_id = 3)
-    (3, 13), -- Libro de respiración guiada
-    (3, 2),  -- Infusión Calmante
-    (3, 14), -- Libro de Mandalas
-    (3, 15), -- Lápices
-    (3, 16), -- Aromaterapia
-    (3, 17), -- Fanzine
-    (3, 18), -- Cojín de contención emocional
+-- Renace
+INSERT INTO kit_producto VALUES
+((SELECT id_kit FROM kit WHERE codigo='KIT_RENACE'), (SELECT id_producto FROM producto WHERE sku='BOTELLA'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RENACE'), (SELECT id_producto FROM producto WHERE sku='CUAD_AUTO'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RENACE'), (SELECT id_producto FROM producto WHERE sku='GUIA_AUTO'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RENACE'), (SELECT id_producto FROM producto WHERE sku='SEMILLAS'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_RENACE'), (SELECT id_producto FROM producto WHERE sku='ANTIFAZ'), 1);
 
-    -- Kit Renace (kit_id = 4)
-    (4, 19), -- Botella con frases
-    (4, 20), -- Cuaderno de autoexploración emocional
-    (4, 21), -- Guía de autocuidado
-    (4, 22), -- Semillas para plantar
-    (4, 23), -- Antifaz para dormir
+-- Contención
+INSERT INTO kit_producto VALUES
+((SELECT id_kit FROM kit WHERE codigo='KIT_CONTENCION'), (SELECT id_producto FROM producto WHERE sku='FRASES'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CONTENCION'), (SELECT id_producto FROM producto WHERE sku='DIARIO_EMO'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CONTENCION'), (SELECT id_producto FROM producto WHERE sku='PELUCHE'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CONTENCION'), (SELECT id_producto FROM producto WHERE sku='TAZA'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CONTENCION'), (SELECT id_producto FROM producto WHERE sku='INF_CALM'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CONTENCION'), (SELECT id_producto FROM producto WHERE sku='GUIA_CRISIS'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_CONTENCION'), (SELECT id_producto FROM producto WHERE sku='COJIN'), 1);
 
-    -- Kit Contención (kit_id = 5)
-    (5, 24), -- Frases de contención
-    (5, 25), -- Diario Emocional
-    (5, 26), -- Peluche de contención emocional
-    (5, 1),  -- Taza
-    (5, 2),  -- Infusión Calmante
-    (5, 27), -- Guía para episodios de crisis
-    (5, 18), -- Cojín de contención emocional
-
-    -- Kit Ansiedad, Insomnio, Pánico (kit_id = 6)
-    (6, 28), -- Juego de autorregulación
-    (6, 29), -- Tarjetas de calma
-    (6, 30), -- Libro de autoayuda
-    (6, 16), -- Aromaterapia (general)
-    (6, 31), -- Flores de Bach
-    (6, 32), -- Velas aromáticas
-    (6, 26), -- Peluche de contención emocional
-    (6, 1),  -- Taza
-    (6, 33); -- Infusión relajante
+-- Ansiedad / Insomnio / Pánico
+INSERT INTO kit_producto VALUES
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='JUEGO_AUTO'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='TAR_CALMA'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='LIB_AUTO'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='AROMA_STD'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='FLORES_BACH'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='VELAS'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='PELUCHE'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='TAZA'), 1),
+((SELECT id_kit FROM kit WHERE codigo='KIT_ANSIEDAD'), (SELECT id_producto FROM producto WHERE sku='INF_RELAX'), 1);
 
