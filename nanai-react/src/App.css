@@ -1,0 +1,26 @@
+/* Estilos específicos de la aplicación */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+/* Estilos para el contenedor principal */
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+/* Estilos para las alertas */
+.alert {
+  margin-bottom: 1rem;
+}
+
+/* Estilos para las tarjetas */
+.card {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Estilos para formularios */
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(147, 112, 219, 0.25);
+}

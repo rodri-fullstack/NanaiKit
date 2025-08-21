@@ -1,0 +1,60 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  background-image: url('/assets/images/fondo.png');
+  background-size: cover;
+  background-position: center;
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.register-card {
+  background-color: #fdfaff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 500px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.register-title {
+  color: #631a8d;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 2.2rem;
+  line-height: 1.2;
+  font-family: 'Philosopher', serif;
+  text-align: center;
+}
+
+.register-subtitle {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+}
+
+.login-link {
+  display: block;
+  margin-top: 1.5rem;
+  text-align: center;
+  color: #666;
+  text-decoration: none;
+}
+
+.login-link a {
+  color: #b27fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
