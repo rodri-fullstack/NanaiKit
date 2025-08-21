@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="sunsetGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFB347;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#FFCC5C;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF8C69;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="fieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8FBC8F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#9ACD32;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Sky background -->
+  <rect width="800" height="300" fill="url(#sunsetGradient)"/>
+  
+  <!-- Field background -->
+  <rect y="300" width="800" height="100" fill="url(#fieldGradient)"/>
+  
+  <!-- Sun -->
+  <circle cx="650" cy="80" r="60" fill="#FFD700" opacity="0.8"/>
+  
+  <!-- Silhouette of person -->
+  <g transform="translate(350, 150)">
+    <!-- Head -->
+    <ellipse cx="0" cy="0" rx="25" ry="30" fill="#2C1810"/>
+    <!-- Hair flowing -->
+    <path d="M-25,-20 Q-40,-30 -45,-10 Q-50,10 -35,25 Q-20,35 -10,30 Q0,25 10,30 Q20,35 35,25 Q50,10 45,-10 Q40,-30 25,-20" fill="#4A2C17"/>
+    <!-- Body -->
+    <rect x="-15" y="30" width="30" height="80" fill="#2C1810"/>
+    <!-- Arms -->
+    <rect x="-35" y="40" width="20" height="50" fill="#2C1810" transform="rotate(-10)"/>
+    <rect x="15" y="40" width="20" height="50" fill="#2C1810" transform="rotate(10)"/>
+  </g>
+  
+  <!-- Grass details -->
+  <g opacity="0.6">
+    <path d="M50,350 Q55,340 60,350" stroke="#228B22" stroke-width="2" fill="none"/>
+    <path d="M150,360 Q155,350 160,360" stroke="#228B22" stroke-width="2" fill="none"/>
+    <path d="M250,355 Q255,345 260,355" stroke="#228B22" stroke-width="2" fill="none"/>
+    <path d="M350,365 Q355,355 360,365" stroke="#228B22" stroke-width="2" fill="none"/>
+    <path d="M450,350 Q455,340 460,350" stroke="#228B22" stroke-width="2" fill="none"/>
+    <path d="M550,360 Q555,350 560,360" stroke="#228B22" stroke-width="2" fill="none"/>
+    <path d="M650,355 Q655,345 660,355" stroke="#228B22" stroke-width="2" fill="none"/>
+    <path d="M750,365 Q755,355 760,365" stroke="#228B22" stroke-width="2" fill="none"/>
+  </g>
+  
+  <!-- Light rays -->
+  <g opacity="0.3">
+    <path d="M650,80 L750,20" stroke="#FFD700" stroke-width="3"/>
+    <path d="M650,80 L780,60" stroke="#FFD700" stroke-width="2"/>
+    <path d="M650,80 L770,120" stroke="#FFD700" stroke-width="2"/>
+    <path d="M650,80 L720,150" stroke="#FFD700" stroke-width="3"/>
+  </g>
+  
+  <!-- Peaceful atmosphere particles -->
+  <g opacity="0.4">
+    <circle cx="100" cy="100" r="2" fill="#FFE4B5"/>
+    <circle cx="200" cy="150" r="1.5" fill="#FFE4B5"/>
+    <circle cx="300" cy="80" r="2" fill="#FFE4B5"/>
+    <circle cx="500" cy="120" r="1" fill="#FFE4B5"/>
+    <circle cx="600" cy="180" r="1.5" fill="#FFE4B5"/>
+  </g>
+</svg>

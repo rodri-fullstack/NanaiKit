@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="skinGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FDBCB4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F7A399;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="200" fill="#F3F4F6"/>
+  
+  <!-- Face -->
+  <ellipse cx="100" cy="90" rx="45" ry="50" fill="url(#skinGradient2)"/>
+  
+  <!-- Hair (longer, darker) -->
+  <path d="M50,65 Q50,30 100,35 Q150,30 150,65 Q150,90 145,100 Q140,110 135,105 Q130,100 125,105 Q120,110 115,105 Q110,100 105,105 Q100,110 95,105 Q90,100 85,105 Q80,110 75,105 Q70,100 65,105 Q60,110 55,105 Q50,100 50,65" fill="#2D1B0E"/>
+  
+  <!-- Eyes -->
+  <ellipse cx="85" cy="80" rx="8" ry="6" fill="#FFFFFF"/>
+  <ellipse cx="115" cy="80" rx="8" ry="6" fill="#FFFFFF"/>
+  <circle cx="85" cy="80" r="4" fill="#4A5568"/>
+  <circle cx="115" cy="80" r="4" fill="#4A5568"/>
+  <circle cx="86" cy="78" r="1.5" fill="#FFFFFF"/>
+  <circle cx="116" cy="78" r="1.5" fill="#FFFFFF"/>
+  
+  <!-- Glasses -->
+  <circle cx="85" cy="80" r="15" fill="none" stroke="#2D3748" stroke-width="2"/>
+  <circle cx="115" cy="80" r="15" fill="none" stroke="#2D3748" stroke-width="2"/>
+  <line x1="100" y1="80" x2="100" y2="80" stroke="#2D3748" stroke-width="2"/>
+  
+  <!-- Eyebrows -->
+  <path d="M78,72 Q85,70 92,72" stroke="#2D1B0E" stroke-width="2" fill="none"/>
+  <path d="M108,72 Q115,70 122,72" stroke="#2D1B0E" stroke-width="2" fill="none"/>
+  
+  <!-- Nose -->
+  <ellipse cx="100" cy="90" rx="3" ry="5" fill="#F7A399"/>
+  
+  <!-- Mouth (smiling) -->
+  <path d="M92,105 Q100,112 108,105" stroke="#D53F8C" stroke-width="2" fill="none"/>
+  
+  <!-- Shirt -->
+  <rect x="60" y="140" width="80" height="60" fill="#FFFFFF" rx="10"/>
+  
+  <!-- Shirt collar -->
+  <path d="M85,140 L100,155 L115,140" fill="#E2E8F0"/>
+</svg>

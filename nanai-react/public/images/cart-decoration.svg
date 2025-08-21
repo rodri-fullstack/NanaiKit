@@ -1,0 +1,32 @@
+<svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g opacity="0.7">
+    <!-- Bolsa de lavanda -->
+    <path d="M75 20C60 20 50 35 50 50C50 80 75 120 75 120C75 120 100 80 100 50C100 35 90 20 75 20Z" fill="#b27fff" />
+    
+    <!-- Cruz médica -->
+    <rect x="65" y="60" width="20" height="5" fill="#FFDE59" />
+    <rect x="72.5" y="52.5" width="5" height="20" fill="#FFDE59" />
+    
+    <!-- Flores de lavanda -->
+    <circle cx="30" cy="30" r="5" fill="#b27fff" />
+    <circle cx="40" cy="25" r="5" fill="#b27fff" />
+    <circle cx="50" cy="20" r="5" fill="#b27fff" />
+    <circle cx="60" cy="15" r="5" fill="#b27fff" />
+    
+    <circle cx="120" cy="30" r="5" fill="#b27fff" />
+    <circle cx="110" cy="25" r="5" fill="#b27fff" />
+    <circle cx="100" cy="20" r="5" fill="#b27fff" />
+    <circle cx="90" cy="15" r="5" fill="#b27fff" />
+    
+    <!-- Tallos -->
+    <line x1="30" y1="30" x2="25" y2="45" stroke="#8A7AB0" stroke-width="2" />
+    <line x1="40" y1="25" x2="35" y2="45" stroke="#8A7AB0" stroke-width="2" />
+    <line x1="50" y1="20" x2="45" y2="45" stroke="#8A7AB0" stroke-width="2" />
+    <line x1="60" y1="15" x2="55" y2="45" stroke="#8A7AB0" stroke-width="2" />
+    
+    <line x1="120" y1="30" x2="125" y2="45" stroke="#8A7AB0" stroke-width="2" />
+    <line x1="110" y1="25" x2="115" y2="45" stroke="#8A7AB0" stroke-width="2" />
+    <line x1="100" y1="20" x2="105" y2="45" stroke="#8A7AB0" stroke-width="2" />
+    <line x1="90" y1="15" x2="95" y2="45" stroke="#8A7AB0" stroke-width="2" />
+  </g>
+</svg>

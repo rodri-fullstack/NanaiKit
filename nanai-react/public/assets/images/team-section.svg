@@ -1,0 +1,124 @@
+<svg viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente de fondo púrpura -->
+    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E9D5FF" />
+      <stop offset="50%" stop-color="#DDD6FE" />
+      <stop offset="100%" stop-color="#C4B5FD" />
+    </linearGradient>
+    
+    <!-- Patrón de plantas de lavanda -->
+    <g id="lavender">
+      <rect x="0" y="15" width="2" height="20" fill="#22C55E"/>
+      <ellipse cx="1" cy="10" rx="3" ry="6" fill="#8B5CF6"/>
+      <ellipse cx="1" cy="6" rx="2" ry="4" fill="#A855F7"/>
+    </g>
+  </defs>
+  
+  <!-- Fondo principal -->
+  <rect width="800" height="400" fill="url(#purpleGradient)" rx="20"/>
+  
+  <!-- Plantas de lavanda decorativas -->
+  <!-- Esquina superior izquierda -->
+  <g transform="translate(50, 30)">
+    <use href="#lavender" transform="scale(1.2)"/>
+  </g>
+  <g transform="translate(65, 25)">
+    <use href="#lavender" transform="scale(1.0)"/>
+  </g>
+  <g transform="translate(80, 35)">
+    <use href="#lavender" transform="scale(1.1)"/>
+  </g>
+  
+  <!-- Esquina superior derecha -->
+  <g transform="translate(720, 30)">
+    <use href="#lavender" transform="scale(1.2)"/>
+  </g>
+  <g transform="translate(735, 25)">
+    <use href="#lavender" transform="scale(1.0)"/>
+  </g>
+  <g transform="translate(750, 35)">
+    <use href="#lavender" transform="scale(1.1)"/>
+  </g>
+  
+  <!-- Esquina inferior derecha -->
+  <g transform="translate(720, 340)">
+    <use href="#lavender" transform="scale(1.2)"/>
+  </g>
+  <g transform="translate(735, 345)">
+    <use href="#lavender" transform="scale(1.0)"/>
+  </g>
+  <g transform="translate(750, 335)">
+    <use href="#lavender" transform="scale(1.1)"/>
+  </g>
+  
+  <!-- Título -->
+  <text x="400" y="80" text-anchor="middle" font-family="Epilogue, sans-serif" font-size="32" font-weight="700" fill="#4C1D95">
+    ¿Quiénes somos?
+  </text>
+  
+  <!-- Fotos del equipo en círculos -->
+  <!-- Primera fila -->
+  <g transform="translate(200, 120)">
+    <circle cx="0" cy="0" r="45" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3"/>
+    <circle cx="0" cy="0" r="40" fill="#F3F4F6"/>
+    <!-- Representación simplificada de Claudio -->
+    <circle cx="0" cy="-10" r="15" fill="#FBBF24"/> <!-- Cabeza -->
+    <rect x="-12" y="5" width="24" height="20" rx="3" fill="#3B82F6"/> <!-- Camisa -->
+    <text x="0" y="75" text-anchor="middle" font-family="Epilogue, sans-serif" font-size="14" font-weight="600" fill="#4C1D95">
+      Claudio Hernández
+    </text>
+  </g>
+  
+  <g transform="translate(400, 120)">
+    <circle cx="0" cy="0" r="45" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3"/>
+    <circle cx="0" cy="0" r="40" fill="#F3F4F6"/>
+    <!-- Representación simplificada de Daniela -->
+    <circle cx="0" cy="-10" r="15" fill="#FBBF24"/> <!-- Cabeza -->
+    <rect x="-8" y="-5" width="16" height="8" rx="8" fill="#374151"/> <!-- Cabello -->
+    <rect x="-6" y="-2" width="12" height="2" fill="#374151"/> <!-- Lentes -->
+    <rect x="-12" y="5" width="24" height="20" rx="3" fill="#FFFFFF"/> <!-- Camisa -->
+    <text x="0" y="75" text-anchor="middle" font-family="Epilogue, sans-serif" font-size="14" font-weight="600" fill="#4C1D95">
+      Daniela Muñoz
+    </text>
+  </g>
+  
+  <g transform="translate(600, 120)">
+    <circle cx="0" cy="0" r="45" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3"/>
+    <circle cx="0" cy="0" r="40" fill="#F3F4F6"/>
+    <!-- Representación simplificada de Tais -->
+    <circle cx="0" cy="-10" r="15" fill="#FBBF24"/> <!-- Cabeza -->
+    <rect x="-10" y="-8" width="20" height="10" rx="5" fill="#8B4513"/> <!-- Cabello -->
+    <rect x="-6" y="-2" width="12" height="2" fill="#374151"/> <!-- Lentes -->
+    <rect x="-12" y="5" width="24" height="20" rx="3" fill="#F3F4F6"/> <!-- Camisa -->
+    <text x="0" y="75" text-anchor="middle" font-family="Epilogue, sans-serif" font-size="14" font-weight="600" fill="#4C1D95">
+      Tais Socías
+    </text>
+  </g>
+  
+  <!-- Segunda fila -->
+  <g transform="translate(300, 250)">
+    <circle cx="0" cy="0" r="45" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3"/>
+    <circle cx="0" cy="0" r="40" fill="#F3F4F6"/>
+    <!-- Representación simplificada de Marce -->
+    <circle cx="0" cy="-10" r="15" fill="#FBBF24"/> <!-- Cabeza -->
+    <rect x="-8" y="-5" width="16" height="8" rx="3" fill="#374151"/> <!-- Cabello con azul -->
+    <rect x="-12" y="5" width="24" height="20" rx="3" fill="#BFDBFE"/> <!-- Camisa azul claro -->
+    <text x="0" y="75" text-anchor="middle" font-family="Epilogue, sans-serif" font-size="14" font-weight="600" fill="#4C1D95">
+      Marce Carreño
+    </text>
+  </g>
+  
+  <g transform="translate(500, 250)">
+    <circle cx="0" cy="0" r="45" fill="#FFFFFF" stroke="#8B5CF6" stroke-width="3"/>
+    <circle cx="0" cy="0" r="40" fill="#F3F4F6"/>
+    <!-- Representación simplificada de Rodrigo -->
+    <circle cx="0" cy="-10" r="15" fill="#FBBF24"/> <!-- Cabeza -->
+    <rect x="-8" y="-5" width="16" height="6" rx="3" fill="#374151"/> <!-- Cabello -->
+    <rect x="-6" y="2" width="12" height="4" fill="#374151"/> <!-- Barba -->
+    <rect x="-12" y="5" width="24" height="20" rx="3" fill="#374151"/> <!-- Camisa oscura -->
+    <text x="0" y="75" text-anchor="middle" font-family="Epilogue, sans-serif" font-size="14" font-weight="600" fill="#4C1D95">
+      Rodrigo Valderrama
+    </text>
+  </g>
+</svg>
