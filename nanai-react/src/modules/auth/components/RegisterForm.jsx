@@ -64,9 +64,6 @@ const RegisterForm = () => {
       newErrors.direccion = 'La dirección es obligatoria';
     }
     
-    if (!formData.tipo_usuario) {
-      newErrors.tipo_usuario = 'Selecciona un tipo de usuario';
-    }
     
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -225,21 +222,7 @@ const RegisterForm = () => {
           </select>
         </div>
         
-        <div className="form-field half-width">
-          <select
-            id="tipo_usuario"
-            name="tipo_usuario"
-            className={errors.tipo_usuario ? 'has-error' : ''}
-            value={formData.tipo_usuario}
-            onChange={handleChange}
-            disabled={isSubmitting}
-          >
-            <option value="">Tipo de usuario</option>
-            <option value="cliente">Cliente</option>
-            <option value="admin">Administrador</option>
-          </select>
-          {errors.tipo_usuario && <div className="error-text">{errors.tipo_usuario}</div>}
-        </div>
+    
       </div>
       
       <button 
@@ -252,5 +235,3 @@ const RegisterForm = () => {
     </form>
   );
 };
-
-export default RegisterForm;
