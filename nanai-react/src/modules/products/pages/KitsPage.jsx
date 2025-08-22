@@ -27,35 +27,37 @@ const KitsPage = () => {
     },
     {
       id: 3,
-      name: "Kit Destacado",
+      name: "Kit Calma",
       price: 42000,
-      image: "/assets/images/kitDestacadoHome.png",
+      image: "/assets/images/kitCalma.png",
       description: "Nuestro kit más popular y completo",
       category: "Premium"
     },
     {
       id: 4,
-      name: "Kit Nanai",
-      price: 32000,
-      image: "/assets/images/nanaiKitHome.png",
-      description: "Kit esencial para comenzar tu journey",
-      category: "Esencial"
+      name: "Kit Renace",
+      price: 38000,
+      image: "/assets/images/KitRenace.png",
+      description: "Experiencia completa de campo de lavanda",
+      category: "Premium"
+    
     },
     {
       id: 5,
-      name: "Kit Lavanda",
+      name: "Kit Contención",
       price: 25000,
-      image: "/assets/images/lavandaHome.png",
+      image: "/assets/images/KitContencion.png",
       description: "Kit relajante con esencia de lavanda",
       category: "Relajación"
     },
     {
       id: 6,
-      name: "Kit Campo Lavanda",
-      price: 38000,
-      image: "/assets/images/campoLavandaHome.png",
-      description: "Experiencia completa de campo de lavanda",
-      category: "Premium"
+      name: "Kit Sos Ansiedad",
+      price: 32000,
+      image: "/assets/images/KitSOS.png",
+      description: "Kit esencial para comenzar tu journey",
+      category: "Esencial"
+     
     }
   ];
 
