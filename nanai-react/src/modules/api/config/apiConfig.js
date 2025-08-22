@@ -1,7 +1,7 @@
 // Configuración de la API
 
 // URL base de la API
-export const API_URL = 'https://nanaikit-1ai3.onrender.com';
+export const API_URL = 'https://nanaikit-j1c8.onrender.com';
 
 // Configuración por defecto para Axios
 export const API_CONFIG = {
