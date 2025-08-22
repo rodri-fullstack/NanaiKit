@@ -18,28 +18,28 @@ const SearchPage = () => {
         id: 1,
         type: 'kit',
         name: "Kit Rutina",
-        description: "Kit completo para establecer rutinas saludables",
-        price: 35000,
+        description: "Para recuperar hábitos y estructura diaria con amabilidad.",
+        price: "$9.990",
         image: "/assets/images/kitRutinaHome.png",
-        category: "Bienestar"
+        category: "Nivel 1 Preventivo"
       },
       {
         id: 2,
         type: 'kit',
         name: "Kit Gratitud",
-        description: "Kit para cultivar la gratitud diaria",
-        price: 28000,
+        description: ".Para valorar lo cotidiano y cultivar pensamientos positivos",
+        price: "$12.990",
         image: "/assets/images/kitGratitudHome.png",
-        category: "Mindfulness"
+        category: "Nivel 1 Preventivo"
       },
       {
         id: 3,
         type: 'kit',
         name: "Kit Calma",
-        description: "Nuestro kit más popular y completo",
-        price: 42000,
+        description: "Para bajar la intensidad, respirar y volver al cuerpo.",
+        price: "$15.990",
         image: "/assets/images/kitCalma.png",
-        category: "Premium"
+        category: "Nivel 2 Alerta"
       },
       {
         id: 4,
