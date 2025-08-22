@@ -35,28 +35,28 @@ const SearchPage = () => {
       {
         id: 3,
         type: 'kit',
-        name: "Kit Destacado",
+        name: "Kit Calma",
         description: "Nuestro kit más popular y completo",
         price: 42000,
-        image: "/assets/images/kitDestacadoHome.png",
+        image: "/assets/images/kitCalma.png",
         category: "Premium"
       },
       {
         id: 4,
         type: 'kit',
-        name: "Kit Nanai",
+        name: "Kit Renace",
         description: "Kit esencial para comenzar tu journey",
         price: 32000,
-        image: "/assets/images/nanaiKitHome.png",
+        image: "/assets/images/KitRenace.png",
         category: "Esencial"
       },
       {
         id: 5,
         type: 'kit',
-        name: "Kit Lavanda",
+        name: "Kit Contención",
         description: "Kit relajante con esencia de lavanda",
         price: 25000,
-        image: "/assets/images/lavandaHome.png",
+        image: "/assets/images/KitContencion.png",
         category: "Relajación"
       }
     ],
