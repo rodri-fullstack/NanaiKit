@@ -78,7 +78,7 @@ const ProductDetail = ({ product }) => {
           
           <div className="related-product">
             <img 
-              src="/assets/images/kitDestacadoHome.png" 
+              src="/assets/images/KitSOS.png" 
               alt="Kit Destacado" 
               className="related-product-image" 
             />
