@@ -37,7 +37,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Calma",
         description: "Para bajar la intensidad, respirar y volver al cuerpo.",
-        price: 15990",
+        price: 15990,
         image: "/assets/images/kitCalma.png",
         category: "Nivel 2 Alerta"
       },
@@ -46,7 +46,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Renace",
         description: "Kit esencial para comenzar tu journey",
-        price: 32000,
+        price: 17990,
         image: "/assets/images/KitRenace.png",
         category: "Esencial"
       },
@@ -55,7 +55,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Contención",
         description: "Kit relajante con esencia de lavanda",
-        price: 25000,
+        price: 1990,
         image: "/assets/images/KitContencion.png",
         category: "Relajación"
       }
