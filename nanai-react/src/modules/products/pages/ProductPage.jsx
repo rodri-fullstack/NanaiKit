@@ -21,7 +21,7 @@ const ProductPage = () => {
           name: 'Kit Rutina',
           description: 'Productos esenciales para tu rutina diaria de autocuidado.',
           longDescription: 'El Kit Rutina está diseñado para ayudarte a establecer hábitos saludables de autocuidado en tu día a día. Incluye productos naturales cuidadosamente seleccionados que te ayudarán a mantener una rutina constante y efectiva.',
-          image: './assets/images/kitRutinaHome.png',
+          image: '/assets/images/kitRutinaHome.png',
           price: 9990,
           benefits: [
             'Mejora tu rutina diaria de autocuidado',
@@ -41,7 +41,7 @@ const ProductPage = () => {
           name: 'Kit Gratitud',
           description: 'Elementos para practicar la gratitud y mejorar tu bienestar emocional.',
           longDescription: 'El Kit Gratitud está diseñado para ayudarte a cultivar una actitud de agradecimiento en tu vida diaria. Incluye herramientas y productos que te invitan a reconocer y apreciar las cosas positivas que te rodean, mejorando así tu bienestar emocional.',
-          image: './assets/images/kitGratitudHome.png',
+          image: '/assets/images/kitGratitudHome.png',
           price: 12990,
           benefits: [
             'Fomenta una actitud positiva',
@@ -61,7 +61,7 @@ const ProductPage = () => {
           name: 'Kit Calma',
           description: 'Nuestra selección premium de productos para un autocuidado completo.',
           longDescription: 'El Kit Destacado es nuestra selección premium de productos para un autocuidado completo. Incluye una combinación perfecta de elementos para cuidar tu cuerpo, mente y espíritu, proporcionándote una experiencia integral de bienestar.',
-          image: './assets/images/kitCalma.png',
+          image: '/assets/images/kitCalma.png',
           price: 15990,
           benefits: [
             'Experiencia completa de autocuidado',

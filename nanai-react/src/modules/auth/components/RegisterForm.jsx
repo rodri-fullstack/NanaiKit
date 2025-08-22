@@ -204,25 +204,21 @@ const RegisterForm = () => {
         </div>
       </div>
       
-      <div className="form-row">
-        <div className="form-field half-width">
-          <select
-            id="genero"
-            name="genero"
-            value={formData.genero}
-            onChange={handleChange}
-            disabled={isSubmitting}
-          >
-            <option value="">Género (opcional)</option>
-            <option value="Femenino">Femenino</option>
-            <option value="Masculino">Masculino</option>
-            <option value="No binario">No binario</option>
-            <option value="Otro">Otro</option>
-            <option value="Prefiero no decirlo">Prefiero no decirlo</option>
-          </select>
-        </div>
-        
-    
+      <div className="form-field">
+        <select
+          id="genero"
+          name="genero"
+          value={formData.genero}
+          onChange={handleChange}
+          disabled={isSubmitting}
+        >
+          <option value="">Género (opcional)</option>
+          <option value="Femenino">Femenino</option>
+          <option value="Masculino">Masculino</option>
+          <option value="No binario">No binario</option>
+          <option value="Otro">Otro</option>
+          <option value="Prefiero no decirlo">Prefiero no decirlo</option>
+        </select>
       </div>
       
       <button 

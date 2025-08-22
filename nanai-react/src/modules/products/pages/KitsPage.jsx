@@ -13,7 +13,7 @@ const KitsPage = () => {
       id: 1,
       name: "Kit Rutina",
       price: 35000,
-      image: "./assets/images/kitRutinaHome.png",
+      image: "/assets/images/kitRutinaHome.png",
       description: "Kit completo para establecer rutinas saludables",
       category: "Bienestar"
     },
@@ -21,7 +21,7 @@ const KitsPage = () => {
       id: 2,
       name: "Kit Gratitud",
       price: 28000,
-      image: "./assets/images/kitGratitudHome.png",
+      image: "/assets/images/kitGratitudHome.png",
       description: "Kit para cultivar la gratitud diaria",
       category: "Mindfulness"
     },
@@ -29,7 +29,7 @@ const KitsPage = () => {
       id: 3,
       name: "Kit Calma",
       price: 42000,
-      image: "./assets/images/kitCalma.png",
+      image: "/assets/images/kitCalma.png",
       description: "Nuestro kit más popular y completo",
       category: "Premium"
     },
@@ -37,7 +37,7 @@ const KitsPage = () => {
       id: 4,
       name: "Kit Renace",
       price: 38000,
-      image: "./assets/images/KitRenace.png",
+      image: "/assets/images/KitRenace.png",
       description: "Experiencia completa de campo de lavanda",
       category: "Premium"
     
@@ -46,7 +46,7 @@ const KitsPage = () => {
       id: 5,
       name: "Kit Contención",
       price: 25000,
-      image: "./assets/images/KitContencion.png",
+      image: "/assets/images/KitContencion.png",
       description: "Kit relajante con esencia de lavanda",
       category: "Relajación"
     },
@@ -54,7 +54,7 @@ const KitsPage = () => {
       id: 6,
       name: "Kit Sos Ansiedad",
       price: 32000,
-      image: "./assets/images/KitSOS.png",
+      image: "/assets/images/KitSOS.png",
       description: "Kit esencial para comenzar tu journey",
       category: "Esencial"
      
@@ -147,26 +147,50 @@ const KitsPage = () => {
         </div>
 
         <div className="row mt-5">
-          <div className="col-12 text-center">
+          <div className="col-12">
             <div className="kit-info-section">
-              <h3 className="mb-3">¿Por qué elegir nuestros kits?</h3>
+              <div className="section-header">
+                <h2 className="section-title">¿Por qué elegir nuestros kits?</h2>
+                <p className="section-subtitle">Descubre lo que nos hace únicos</p>
+              </div>
               <div className="row g-4">
                 <div className="col-md-4">
-                  <div className="info-item">
-                    <h5>Calidad Premium</h5>
-                    <p>Productos cuidadosamente seleccionados para tu bienestar</p>
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                    <div className="feature-content">
+                      <h5>Calidad Premium</h5>
+                      <p>Productos cuidadosamente seleccionados para tu bienestar</p>
+                    </div>
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="info-item">
-                    <h5>Envío Gratis</h5>
-                    <p>Envío gratuito en compras superiores a $30.000</p>
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7V10C2 16 6 20 12 22C18 20 22 16 22 10V7L12 2Z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                    <div className="feature-content">
+                      <h5>Envío Gratis</h5>
+                      <p>Envío gratuito en compras superiores a $30.000</p>
+                    </div>
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="info-item">
-                    <h5>Satisfacción Garantizada</h5>
-                    <p>30 días de garantía en todos nuestros productos</p>
+                  <div className="feature-card">
+                    <div className="feature-icon">
+                      <svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" fill="currentColor"/>
+                      </svg>
+                    </div>
+                    <div className="feature-content">
+                      <h5>Satisfacción Garantizada</h5>
+                      <p>30 días de garantía en todos nuestros productos</p>
+                    </div>
                   </div>
                 </div>
               </div>

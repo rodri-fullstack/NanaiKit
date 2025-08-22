@@ -20,4 +20,12 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  padding-top: 60px; /* Compensar navbar fijo más compacto */
+}
+
+/* Responsive padding para el navbar */
+@media (max-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
 }

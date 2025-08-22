@@ -1,4 +1,4 @@
-.register-container {
+.login-container {
   min-height: 100vh;
   display: flex;
   justify-content: center;
@@ -11,7 +11,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.register-card {
+.login-card {
   background-color: #fdfaff;
   border-radius: 16px;
   box-shadow: 0 8px 32px rgba(99, 26, 141, 0.1);
@@ -50,7 +50,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
-.login-link {
+.register-link {
   display: block;
   margin-top: 2rem;
   text-align: center;
@@ -59,7 +59,7 @@
   font-size: 0.95rem;
 }
 
-.login-link a {
+.register-link a {
   color: #631a8d;
   font-weight: 600;
   text-decoration: none;
@@ -68,7 +68,7 @@
   border-radius: 6px;
 }
 
-.login-link a:hover {
+.register-link a:hover {
   color: #b27fff;
   background-color: rgba(168, 130, 221, 0.1);
   text-decoration: none;

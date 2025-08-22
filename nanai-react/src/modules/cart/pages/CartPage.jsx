@@ -110,25 +110,7 @@ const CartPage = () => {
         </div>
       )}
       
-      {/* Enlaces de ayuda */}
-      <div className="help-links">
-        <Link to="/preguntas-frecuentes">Preguntas Frecuentes</Link>
-        <Link to="/privacidad">Política de Privacidad</Link>
-        <Link to="/terminos">Términos de Servicio</Link>
-      </div>
-      
-      {/* Iconos de redes sociales */}
-      <div className="social-icons">
-        <a href="#" aria-label="Instagram">
-          <img src="/assets/images/icon-instagram.png" alt="Instagram" />
-        </a>
-        <a href="#" aria-label="Facebook">
-          <img src="/assets/images/icon-facebook.png" alt="Facebook" />
-        </a>
-        <a href="#" aria-label="Twitter">
-          <img src="/assets/images/icon-equis.png" alt="Twitter" />
-        </a>
-      </div>
+
     </div>
   );
 };

@@ -114,6 +114,7 @@ const LoginForm = () => {
           value={formData.password}
           onChange={handleChange}
           disabled={isSubmitting}
+          placeholder="Ingresa tu contraseña"
         />
         {errors.password && <div className="invalid-feedback">{errors.password}</div>}
       </div>

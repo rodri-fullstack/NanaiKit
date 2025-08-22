@@ -11,5 +11,10 @@ export default defineConfig({
         manualChunks: undefined
       }
     }
-  }
+  },
+  server: {
+    port: 3000,
+    open: true
+  },
+  publicDir: 'public'
 })

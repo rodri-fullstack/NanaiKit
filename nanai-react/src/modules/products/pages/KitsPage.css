@@ -66,27 +66,121 @@
 }
 
 .kit-info-section {
-  background: linear-gradient(135deg, #DDD6FE 0%, #E9D5FF 100%);
-  padding: 3rem 2rem;
-  border-radius: 20px;
-  box-shadow: 0 5px 15px rgba(107, 70, 193, 0.15);
+  background: linear-gradient(135deg, #fdfaff 0%, #f8f5ff 100%);
+  padding: 4rem 2rem;
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(99, 26, 141, 0.1);
+  border: 1px solid rgba(168, 130, 221, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
-.info-item {
+.kit-info-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(135deg, #631a8d 0%, #8a6bb8 100%);
+}
+
+.section-header {
   text-align: center;
-  padding: 1rem;
+  margin-bottom: 3rem;
 }
 
-.info-item h5 {
-  color: #6B46C1;
+.section-title {
+  color: #631a8d;
+  font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 1rem;
-  font-weight: 600;
+  font-family: 'Philosopher', serif;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 4px rgba(99, 26, 141, 0.1);
 }
 
-.info-item p {
-  color: #7C3AED;
+.section-subtitle {
+  color: #8a6bb8;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  line-height: 1.4;
+}
+
+.feature-card {
+  background: linear-gradient(135deg, #ffffff 0%, #f8f5ff 100%);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(99, 26, 141, 0.1);
+  border: 1px solid rgba(168, 130, 221, 0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #631a8d 0%, #8a6bb8 100%);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(99, 26, 141, 0.2);
+  border-color: rgba(168, 130, 221, 0.3);
+}
+
+.feature-icon {
+  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: linear-gradient(135deg, rgba(99, 26, 141, 0.1) 0%, rgba(168, 130, 221, 0.1) 100%);
+  border-radius: 50%;
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  background: linear-gradient(135deg, rgba(99, 26, 141, 0.2) 0%, rgba(168, 130, 221, 0.2) 100%);
+  transform: scale(1.1);
+}
+
+.feature-icon svg {
+  color: #631a8d;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon svg {
+  color: #8a6bb8;
+  transform: scale(1.1);
+}
+
+.feature-content h5 {
+  color: #631a8d;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.3rem;
+  font-family: 'Philosopher', serif;
+  letter-spacing: -0.5px;
+}
+
+.feature-content p {
+  color: #666;
   margin-bottom: 0;
   line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 /* Header responsive styles */
@@ -218,22 +312,35 @@
 
   /* 🔵 Ya no forzamos altura fija aquí */
   .kit-info-section {
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
     margin-top: 2rem;
   }
   
-  .kit-info-section h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: #6B46C1;
-  }
-  
-  .info-item h5 {
-    font-size: 1.1rem;
+  .section-title {
+    font-size: 2rem;
     margin-bottom: 0.8rem;
   }
   
-  .info-item p {
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+  
+  .feature-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1.25rem;
+  }
+  
+  .feature-content h5 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .feature-content p {
     font-size: 0.9rem;
     line-height: 1.5;
   }
@@ -350,17 +457,23 @@
     margin-bottom: 1.2rem;
   }
   
-  .info-item {
-    padding: 0.8rem;
+  .feature-card {
+    padding: 1.25rem 0.8rem;
     margin-bottom: 1rem;
   }
   
-  .info-item h5 {
-    font-size: 1rem;
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .feature-content h5 {
+    font-size: 1.1rem;
     margin-bottom: 0.6rem;
   }
   
-  .info-item p {
+  .feature-content p {
     font-size: 0.85rem;
     line-height: 1.4;
   }
@@ -417,17 +530,23 @@
     margin-bottom: 1rem;
   }
   
-  .info-item {
-    padding: 0.6rem;
+  .feature-card {
+    padding: 1rem 0.6rem;
     margin-bottom: 0.8rem;
   }
   
-  .info-item h5 {
-    font-size: 0.95rem;
+  .feature-icon {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 0.8rem;
+  }
+  
+  .feature-content h5 {
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
   
-  .info-item p {
+  .feature-content p {
     font-size: 0.8rem;
     line-height: 1.3;
   }
