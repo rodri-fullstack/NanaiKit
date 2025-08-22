@@ -4,13 +4,31 @@ spring:
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
 
-
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: validate
     show-sql: false
 
+server:
+  port: 8080
+  servlet:
+    context-path: /
+
+# Configuración CORS para producción
 app:
   security:
     cors:
-      dev: false # Activa CORS restringido para React / producción
+      allowed-origins:
+        - "https://nanai-kit.vercel.app"
+        - "https://nanai-kit-git-main-nanai-kit.vercel.app"
+        - "https://nanai-kit-git-develop-nanai-kit.vercel.app"
+      allowed-methods:
+        - "GET"
+        - "POST"
+        - "PUT"
+        - "DELETE"
+        - "OPTIONS"
+        - "PATCH"
+      allowed-headers: "*"
+      allow-credentials: true
+      max-age: 3600

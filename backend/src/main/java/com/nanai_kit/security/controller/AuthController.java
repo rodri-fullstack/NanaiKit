@@ -11,6 +11,13 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin(origins = {
+    "https://nanai-kit.vercel.app",
+    "https://nanai-kit-git-main-nanai-kit.vercel.app",
+    "https://nanai-kit-git-develop-nanai-kit.vercel.app",
+    "http://localhost:3000",
+    "http://localhost:5173"
+}, allowCredentials = "true")
 @RequiredArgsConstructor
 public class AuthController {
 
