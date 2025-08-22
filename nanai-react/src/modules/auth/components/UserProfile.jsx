@@ -59,13 +59,7 @@ const UserProfile = () => {
             <label>Usuario:</label>
             <span>{user.username}</span>
           </div>
-          
-          <div className="info-item">
-            <label>Token:</label>
-            <span className="token-display">
-              {user.token ? `${user.token.substring(0, 20)}...` : 'No disponible'}
-            </span>
-          </div>
+      
         </div>
         
         <div className="profile-actions">
@@ -84,24 +78,9 @@ const UserProfile = () => {
         </div>
       </div>
       
-      <div className="demo-info">
-        <h4>Usuarios de Prueba Disponibles:</h4>
-        <div className="demo-users">
-          <div className="demo-user">
-            <strong>Usuario Demo:</strong>
-            <br />Usuario: demo | Contraseña: 1234
-          </div>
-          <div className="demo-user">
-            <strong>Usuario Test:</strong>
-            <br />Usuario: test | Contraseña: 1234
-          </div>
-          <div className="demo-user">
-            <strong>Usuario Ejemplo:</strong>
-            <br />Email: usuario@ejemplo.com | Contraseña: 123456
-          </div>
-        </div>
+     
       </div>
-    </div>
+    
   );
 };
 
