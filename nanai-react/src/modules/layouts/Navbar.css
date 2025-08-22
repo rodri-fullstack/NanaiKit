@@ -29,11 +29,44 @@
   border-radius: 10px;
   font-weight: 600;
   transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .btn:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Botón Registrarse - Estilo principal */
+.btn-register {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+}
+
+.btn-register:hover {
+  background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.4);
+  color: white !important;
+}
+
+/* Botón Iniciar Sesión - Estilo amarillo original */
+.btn-login {
+  background: #FDE88B !important;
+  color: #6B21A8 !important;
+  border: 1px solid #E6C547 !important;
+  box-shadow: 0 4px 15px rgba(253, 232, 139, 0.3);
+}
+
+.btn-login:hover {
+  background: #8B6BB1 !important;
+  color: white !important;
+  border-color: #8B6BB1 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 25px rgba(139, 107, 177, 0.4);
 }
 
 /* Mobile Responsive Styles */

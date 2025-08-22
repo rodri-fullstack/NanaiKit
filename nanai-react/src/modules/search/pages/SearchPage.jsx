@@ -19,7 +19,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Rutina",
         description: "Para recuperar hábitos y estructura diaria con amabilidad.",
-        price: 9990,
+        price: 35000,
         image: "/assets/images/kitRutinaHome.png",
         category: "Nivel 1 Preventivo"
       },
@@ -28,7 +28,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Gratitud",
         description: ".Para valorar lo cotidiano y cultivar pensamientos positivos",
-        price: 12990,
+        price: 38000,
         image: "/assets/images/kitGratitudHome.png",
         category: "Nivel 1 Preventivo"
       },
@@ -37,7 +37,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Calma",
         description: "Para bajar la intensidad, respirar y volver al cuerpo.",
-        price: 15990,
+        price: 42000,
         image: "/assets/images/kitCalma.png",
         category: "Nivel 2 Alerta"
       },
@@ -46,7 +46,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Renace",
         description: "Kit esencial para comenzar tu journey",
-        price: 17990,
+        price: 38000,
         image: "/assets/images/KitRenace.png",
         category: "Esencial"
       },
@@ -55,7 +55,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Contención",
         description: "Kit relajante con esencia de lavanda",
-        price: 1990,
+        price: 25000,
         image: "/assets/images/KitContencion.png",
         category: "Relajación"
       }
