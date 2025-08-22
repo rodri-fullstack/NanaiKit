@@ -57,7 +57,7 @@ export const blogPosts = [
     date: "2023-12-20",
     readTime: "6 min",
     category: "Estrés",
-    image: "/assets/images/blog-estres.jpg",
+    image: "/assets/images/blog-estres.jpeg",
     tags: ["estrés", "gestión", "equilibrio", "relajación"]
   },
   {
