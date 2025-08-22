@@ -1,7 +1,7 @@
 // Configuración de la API
 
 // URL base de la API
-export const API_URL = 'https://api.nanaikit.com/api/v1';
+export const API_URL = 'https://nanaikit-1ai3.onrender.com';
 
 // Configuración por defecto para Axios
 export const API_CONFIG = {
@@ -9,7 +9,7 @@ export const API_CONFIG = {
     'Content-Type': 'application/json',
     'Accept': 'application/json'
   },
-  timeout: 10000 // 10 segundos
+  timeout: 60000 // 60 segundos (evita timeouts por cold start)
 };
 
 // Códigos de error comunes
