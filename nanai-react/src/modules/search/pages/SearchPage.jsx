@@ -19,7 +19,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Rutina",
         description: "Para recuperar hábitos y estructura diaria con amabilidad.",
-        price: "$9.990",
+        price: 9990,
         image: "/assets/images/kitRutinaHome.png",
         category: "Nivel 1 Preventivo"
       },
@@ -28,7 +28,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Gratitud",
         description: ".Para valorar lo cotidiano y cultivar pensamientos positivos",
-        price: "$12.990",
+        price: 12990,
         image: "/assets/images/kitGratitudHome.png",
         category: "Nivel 1 Preventivo"
       },
@@ -37,7 +37,7 @@ const SearchPage = () => {
         type: 'kit',
         name: "Kit Calma",
         description: "Para bajar la intensidad, respirar y volver al cuerpo.",
-        price: "$15.990",
+        price: 15990",
         image: "/assets/images/kitCalma.png",
         category: "Nivel 2 Alerta"
       },
