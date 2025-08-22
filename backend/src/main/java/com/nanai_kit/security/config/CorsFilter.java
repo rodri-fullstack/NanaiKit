@@ -31,9 +31,10 @@ public class CorsFilter implements Filter {
         // Manejar peticiones preflight OPTIONS
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
-        } else {
-            chain.doFilter(req, res);
+            return; // No continuar con la cadena de filtros para OPTIONS
         }
+        
+        chain.doFilter(req, res);
     }
 
     @Override

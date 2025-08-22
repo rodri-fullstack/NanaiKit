@@ -10,7 +10,6 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")
-                .allowedOriginPatterns("*")
                 .allowedOrigins(
                     "https://nanai-kit.vercel.app",
                     "https://nanai-kit-git-main-nanai-kit.vercel.app",
