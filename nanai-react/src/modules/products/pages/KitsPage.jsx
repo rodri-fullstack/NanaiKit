@@ -13,7 +13,7 @@ const KitsPage = () => {
       id: 1,
       name: "Kit Rutina",
       price: 35000,
-      image: "/assets/images/kitRutinaHome.png",
+      image: "./assets/images/kitRutinaHome.png",
       description: "Kit completo para establecer rutinas saludables",
       category: "Bienestar"
     },
@@ -21,7 +21,7 @@ const KitsPage = () => {
       id: 2,
       name: "Kit Gratitud",
       price: 28000,
-      image: "/assets/images/kitGratitudHome.png",
+      image: "./assets/images/kitGratitudHome.png",
       description: "Kit para cultivar la gratitud diaria",
       category: "Mindfulness"
     },
@@ -29,7 +29,7 @@ const KitsPage = () => {
       id: 3,
       name: "Kit Calma",
       price: 42000,
-      image: "/assets/images/kitCalma.png",
+      image: "./assets/images/kitCalma.png",
       description: "Nuestro kit más popular y completo",
       category: "Premium"
     },
@@ -37,7 +37,7 @@ const KitsPage = () => {
       id: 4,
       name: "Kit Renace",
       price: 38000,
-      image: "/assets/images/KitRenace.png",
+      image: "./assets/images/KitRenace.png",
       description: "Experiencia completa de campo de lavanda",
       category: "Premium"
     
@@ -46,7 +46,7 @@ const KitsPage = () => {
       id: 5,
       name: "Kit Contención",
       price: 25000,
-      image: "/assets/images/KitContencion.png",
+      image: "./assets/images/KitContencion.png",
       description: "Kit relajante con esencia de lavanda",
       category: "Relajación"
     },
@@ -54,7 +54,7 @@ const KitsPage = () => {
       id: 6,
       name: "Kit Sos Ansiedad",
       price: 32000,
-      image: "/assets/images/KitSOS.png",
+      image: "./assets/images/KitSOS.png",
       description: "Kit esencial para comenzar tu journey",
       category: "Esencial"
      

@@ -58,10 +58,10 @@ const ProductPage = () => {
         },
         {
           id: 3,
-          name: 'Kit Destacado',
+          name: 'Kit Calma',
           description: 'Nuestra selección premium de productos para un autocuidado completo.',
           longDescription: 'El Kit Destacado es nuestra selección premium de productos para un autocuidado completo. Incluye una combinación perfecta de elementos para cuidar tu cuerpo, mente y espíritu, proporcionándote una experiencia integral de bienestar.',
-          image: '/assets/images/kitDestacadoHome.png',
+          image: '/assets/images/kitCalma.png',
           price: 42000,
           benefits: [
             'Experiencia completa de autocuidado',
@@ -76,6 +76,7 @@ const ProductPage = () => {
             'Infusiones orgánicas',
             'Guía completa de autocuidado'
           ]
+
         }
       ];
 
