@@ -44,9 +44,9 @@ const TestPage = () => {
     },
     'Kit Destacado': {
       id: 3,
-      name: 'Kit Destacado',
+      name: 'Kit SOS Ansiedad',
       description: 'Nuestro kit más completo para un bienestar integral.',
-      image: '/assets/images/kitDestacadoHome.png',
+      image: '/assets/images/kitSOS.png',
       price: 42000
     },
     'Kit Nanai': {

@@ -21,9 +21,9 @@ const FeaturedProducts = () => {
     },
     {
       id: 3,
-      name: 'Kit Destacado',
+      name: 'Kit SOS',
       description: 'Nuestra selección premium de productos para un autocuidado completo.',
-      image: '/assets/images/kitDestacadoHome.png',
+      image: '/assets/images/KitSOS.png',
       price: 42000
     }
   ];
